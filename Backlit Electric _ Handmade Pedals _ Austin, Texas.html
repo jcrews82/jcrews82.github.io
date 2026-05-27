@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)file:///Users/jeffcrews/Downloads/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backlit Electric | Handmade Pedals | Austin, Texas</title>
+<meta name="description" content="Backlit Electric handcrafted pedals, hand-wired in Austin Texas. Boutique clones built with carefully sourced components and acid-etched enclosures.">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Backlit Electric _ Handmade Pedals _ Austin, Texas_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --black: #0d0d0b;
+    --off-white: #f0ede6;
+    --cream: #e8e2d6;
+    --amber: #c8882a;
+    --amber-dark: #9a6318;
+    --amber-light: #e8b050;
+    --rust: #8b3a1a;
+    --dark-surface: #161612;
+    --mid-surface: #1e1e18;
+    --border: rgba(200,136,42,0.25);
+    --border-strong: rgba(200,136,42,0.55);
+    --text-muted: #8a8678;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--off-white);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,13,11,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--amber-light); }
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--amber);
+    transition: all 0.3s;
+  }
+
+  /* ─── HERO ─── */
+  #home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('wood-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.18;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(13,13,11,0.3) 0%, rgba(13,13,11,0.85) 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(200,136,42,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 12vw, 9rem);
+    letter-spacing: 0.04em;
+    line-height: 0.9;
+    color: var(--off-white);
+    margin-bottom: 0.3em;
+  }
+
+  h1 span { color: var(--amber); }
+
+  .hero-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--black);
+    font-weight: 500;
+  }
+
+  .btn-primary:hover {
+    background: var(--amber-light);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--off-white);
+    border: 0.5px solid var(--border-strong);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--amber);
+    color: var(--amber-light);
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 6rem 2rem; }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: 0.05em;
+    line-height: 1;
+    color: var(--off-white);
+    margin-bottom: 1rem;
+  }
+
+  .section-rule {
+    width: 48px;
+    height: 1px;
+    background: var(--amber);
+    margin-bottom: 3rem;
+  }
+
+  /* ─── SHOP ─── */
+  #shop { background: var(--dark-surface); }
+
+  .shop-inner { max-width: 1100px; margin: 0 auto; }
+
+  .shop-header { margin-bottom: 3rem; }
+
+  .stripe-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+
+  .pedals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5px;
+    border: 1.5px solid var(--border);
+  }
+
+  .pedal-card {
+    background: var(--mid-surface);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+
+  .pedal-card:hover { background: #252520; }
+
+  .pedal-img-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #111110;
+    border: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pedal-img-placeholder svg {
+    opacity: 0.15;
+  }
+
+  .pedal-type {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  .pedal-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    color: var(--off-white);
+    line-height: 1;
+  }
+
+  .pedal-origin {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: -0.5rem;
+  }
+
+  .pedal-desc {
+    font-size: 0.85rem;
+    color: #a09a8e;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .pedal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 0.5px solid var(--border);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .pedal-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+  }
+
+  .buy-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    background: var(--amber);
+    color: var(--black);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+
+  .buy-btn:hover { background: var(--amber-light); }
+
+  /* ─── STRIPE MODAL ─── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal {
+    background: var(--mid-surface);
+    border: 0.5px solid var(--border-strong);
+    max-width: 440px;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    color: var(--off-white);
+  }
+
+  .modal-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--amber);
+    margin-top: 0.2rem;
+  }
+
+  .modal-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 4px;
+  }
+
+  .modal-close:hover { color: var(--off-white); }
+
+  .stripe-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .form-input {
+    background: #111110;
+    border: 0.5px solid var(--border);
+    color: var(--off-white);
+    padding: 0.75rem 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    width: 100%;
+    transition: border-color 0.2s;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--amber);
+  }
+
+  .stripe-powered {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+
+  /* Stripe Elements placeholder */
+  #card-element {
+    background: #111110;
+    border: 0.5px solid var(--border);
+    padding: 0.9rem 1rem;
+    min-height: 44px;
+  }
+
+  #card-element:focus-within { border-color: var(--amber); }
+
+  #card-errors {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: #e05a4a;
+    min-height: 1.2em;
+  }
+
+  /* ─── GALLERY ─── */
+  #gallery { background: var(--black); }
+
+  .gallery-inner { max-width: 1100px; margin: 0 auto; }
+
+  .gallery-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .tab-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -0.5px;
+    transition: all 0.2s;
+  }
+
+  .tab-btn.active {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+
+  .tab-btn:hover { color: var(--off-white); }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .gallery-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-left: 2px solid var(--border-strong);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5px;
+  }
+
+  .gallery-item {
+    aspect-ratio: 1;
+    background: var(--mid-surface);
+    border: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .gallery-item:hover img { transform: scale(1.04); }
+
+  .gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--dark-surface); }
+
+  .about-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: #a09a8e;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text p:first-child { color: var(--off-white); font-size: 1.05rem; }
+
+  .about-specs {
+    border: 0.5px solid var(--border);
+    padding: 2rem;
+  }
+
+  .spec-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .spec-row:last-child { border-bottom: none; }
+
+  .spec-key {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  .spec-val {
+    font-size: 0.88rem;
+    color: var(--off-white);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #080807;
+    border-top: 0.5px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 56px; left: 0; right: 0;
+      background: rgba(13,13,11,0.97);
+      padding: 2rem;
+      gap: 1.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+    section { padding: 4rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="file:///Users/jeffcrews/Downloads/index.html#home" class="nav-logo">Backlit Electric</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="file:///Users/jeffcrews/Downloads/index.html#shop" onclick="closeNav()">Shop</a></li>
+    <li><a href="file:///Users/jeffcrews/Downloads/index.html#gallery" onclick="closeNav()">Gallery</a></li>
+    <li><a href="file:///Users/jeffcrews/Downloads/index.html#about" onclick="closeNav()">About</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Austin, Texas — Est. 2001</p>
+    <h1>Backlit<br><span>Electric</span></h1>
+    <p class="hero-sub">Hand-wired pedals. Carefully sourced components.</p>
+    <div class="hero-cta">
+      <a href="file:///Users/jeffcrews/Downloads/index.html#shop" class="btn btn-primary">Shop Pedals</a>
+      <a href="file:///Users/jeffcrews/Downloads/index.html#about" class="btn btn-ghost">The Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop">
+  <div class="shop-inner">
+    <div class="shop-header">
+      <p class="section-label">Available Now</p>
+      <h2>The Pedals</h2>
+      <div class="section-rule"></div>
+      <p class="stripe-note">// Secure checkout via Stripe &nbsp;·&nbsp; Ships from Austin, TX</p>
+    </div>
+
+    <div class="pedals-grid">
+
+      <!-- Scarab Deluxe Clone -->
+      <div class="pedal-card">
+        <div class="pedal-img-placeholder">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"></rect>
+            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+          </svg>
+        </div>
+        <div>
+          <p class="pedal-type">Fuzz</p>
+          <p class="pedal-name">Scarab Deluxe</p>
+          <p class="pedal-origin">After Basic Audio</p>
+        </div>
+        <p class="pedal-desc">A faithful hand-wired clone of the Basic Audio Scarab Deluxe. Thick, harmonically rich fuzz with a wide range of tones from vintage to blown-out. Carefully sourced components, hand-wired point-to-point.</p>
+        <div class="pedal-footer">
+          <span class="pedal-price">$125</span>
+          <button class="buy-btn" onclick="openModal(&#39;Scarab Deluxe Fuzz&#39;, 125)">Buy Now</button>
+        </div>
+      </div>
+
+      <!-- JHS Crayon Clone -->
+      <div class="pedal-card">
+        <div class="pedal-img-placeholder">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"></rect>
+            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+          </svg>
+        </div>
+        <div>
+          <p class="pedal-type">Full-Range Overdrive</p>
+          <p class="pedal-name">The Crayon</p>
+          <p class="pedal-origin">After JHS Pedals</p>
+        </div>
+        <p class="pedal-desc">Clone of the JHS Crayon — a full-range, transparent overdrive that plays well with everything. Preserves your tone while adding warmth and grit.</p>
+        <div class="pedal-footer">
+          <span class="pedal-price">$125</span>
+          <button class="buy-btn" onclick="openModal(&#39;The Crayon Overdrive&#39;, 125)">Buy Now</button>
+        </div>
+      </div>
+
+      <!-- EQD Black Ash Clone -->
+      <div class="pedal-card">
+        <div class="pedal-img-placeholder">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"></rect>
+            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+          </svg>
+        </div>
+        <div>
+          <p class="pedal-type">Fuzz / Distortion</p>
+          <p class="pedal-name">Black Ash</p>
+          <p class="pedal-origin">After EarthQuaker Devices</p>
+        </div>
+        <p class="pedal-desc">Hand-wired clone of the EQD Black Ash. A gnarly, asymmetric fuzz-distortion hybrid with a massive low end and aggressive harmonic content.</p>
+        <div class="pedal-footer">
+          <span class="pedal-price">$125</span>
+          <button class="buy-btn" onclick="openModal(&#39;Black Ash Fuzz&#39;, 125)">Buy Now</button>
+        </div>
+      </div>
+
+      <!-- Catalinbread Karma Sutra Clone -->
+      <div class="pedal-card">
+        <div class="pedal-img-placeholder">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"></rect>
+            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+          </svg>
+        </div>
+        <div>
+          <p class="pedal-type">Overdrive</p>
+          <p class="pedal-name">Karma Sutra</p>
+          <p class="pedal-origin">After Catalinbread</p>
+        </div>
+        <p class="pedal-desc">Clone of the Catalinbread Karma Sutra. A warm, touch-sensitive overdrive inspired by pushed tape saturation. Responsive and musical at any gain level.</p>
+        <div class="pedal-footer">
+          <span class="pedal-price">$125</span>
+          <button class="buy-btn" onclick="openModal(&#39;Karma Sutra Overdrive&#39;, 125)">Buy Now</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STRIPE MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <p class="modal-title" id="modalProductName">Scarab Deluxe Fuzz</p>
+        <p class="modal-sub" id="modalProductPrice">$125 — Free shipping within the US</p>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="stripe-form">
+      <div class="form-group">
+        <label class="form-label">Name on card</label>
+        <input class="form-input" type="text" placeholder="John Smith" id="cardName">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" placeholder="you@example.com" id="cardEmail">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Shipping address</label>
+        <input class="form-input" type="text" placeholder="Street address" id="shipAddress" style="margin-bottom:6px;">
+        <input class="form-input" type="text" placeholder="City, State, ZIP" id="shipCity">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Card details</label>
+        <div id="card-element"></div>
+        <div id="card-errors"></div>
+      </div>
+      <div class="stripe-powered">
+        <svg width="38" height="16" viewBox="0 0 38 16" fill="none"><text x="0" y="13" font-family="monospace" font-size="11" fill="#8a8678">Stripe</text></svg>
+        Payments secured by Stripe
+      </div>
+      <button class="btn btn-primary" id="submitBtn" onclick="handleCheckout()" style="width:100%; padding: 1rem; font-size: 0.8rem;">
+        Complete Purchase
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-inner">
+    <p class="section-label">The Work</p>
+    <h2>Gallery</h2>
+    <div class="section-rule"></div>
+
+    <div class="gallery-tabs">
+      <button class="tab-btn active" onclick="switchTab(&#39;pedals&#39;)">Pedals</button>
+      <button class="tab-btn" onclick="switchTab(&#39;guitars&#39;)">Guitars</button>
+      <button class="tab-btn" onclick="switchTab(&#39;amps&#39;)">Amplifiers</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-pedals">
+      <p class="gallery-note">// Photos coming soon — check back shortly</p>
+      <div class="gallery-grid" id="pedalGallery"><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div></div>
+    </div>
+
+    <div class="tab-panel" id="tab-guitars">
+      <p class="gallery-note">// Guitars are no longer offered for sale — this is an archive of past builds</p>
+      <div class="gallery-grid" id="guitarGallery"><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div></div>
+    </div>
+
+    <div class="tab-panel" id="tab-amps">
+      <p class="gallery-note">// Amplifiers are no longer offered for sale — this is an archive of past builds</p>
+      <div class="gallery-grid" id="ampGallery"><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div>
+      <p class="section-label">The Builder</p>
+      <h2>About</h2>
+      <div class="section-rule"></div>
+      <div class="about-text">
+        <p>Backlit Electric is a one-man show out of Austin Texas. I've been plugging away at music in Austin since 2001.</p>
+        <p>In the early days, the need for gear and a lack of proper funding drove me to the garage. I built gear with every extra dollar I could get my hands on. Over the years I've built a mountain of guitars, amps and pedals for local musicians, friends, family, bandmates, and randos on the internet.</p>
+        <p>I'm still stuck in the classics — the tried and tested construction methods from 50 years ago. I like thin nitro finishes, untraditional color mediums, cloth-covered wire, tru-oil, reclaimed lumber and experimental pedal schematics.</p>
+        <p>There is dark magic in taking a piece of gear from your mind to your hands.</p>
+      </div>
+    </div>
+    <div class="about-specs">
+      <div class="spec-row">
+        <span class="spec-key">Location</span>
+        <span class="spec-val">Austin, Texas</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">Building since</span>
+        <span class="spec-val">2001</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">Currently offering</span>
+        <span class="spec-val">Pedals only</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">Construction</span>
+        <span class="spec-val">Hand-wired, point-to-point</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">Components</span>
+        <span class="spec-val">Carefully sourced</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">Shipping</span>
+        <span class="spec-val">Ships from Austin, TX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">Backlit Electric</p>
+  <p class="footer-text">Austin, Texas &nbsp;·&nbsp; Hand-wired pedals &nbsp;·&nbsp; Built with Claude</p>
+</footer>
+
+<!-- STRIPE JS -->
+<script src="./Backlit Electric _ Handmade Pedals _ Austin, Texas_files/saved_resource"></script>
+
+<script>
+  // ── Nav toggle
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  function closeNav() {
+    document.getElementById('navLinks').classList.remove('open');
+  }
+
+  // ── Gallery tabs
+  function switchTab(name) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Populate gallery placeholders
+  function buildPlaceholders(containerId, count) {
+    const el = document.getElementById(containerId);
+    for (let i = 0; i < count; i++) {
+      el.innerHTML += `<div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"/><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"/><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"/></svg><span>Photo</span></div></div>`;
+    }
+  }
+  buildPlaceholders('pedalGallery', 8);
+  buildPlaceholders('guitarGallery', 20);
+  buildPlaceholders('ampGallery', 8);
+
+  // ── Stripe checkout modal
+  let stripe, cardElement, currentProduct;
+
+  function initStripe() {
+    // Replace with your Stripe publishable key
+    const STRIPE_KEY = 'pk_test_51TblhnAluVLndNxlORIB15IBBS4EgcftJ77GMOdpkSAM8w8P987VCeXuO5vlY3DFH0EpDSkZDEEhkyP9ZtdNhQ5m00Fe3WEZ1s';
+    if (STRIPE_KEY.includes('YOUR_PUBLISHABLE_KEY')) return;
+    stripe = Stripe(STRIPE_KEY);
+    const elements = stripe.elements({
+      appearance: {
+        theme: 'night',
+        variables: {
+          colorPrimary: '#c8882a',
+          colorBackground: '#111110',
+          colorText: '#f0ede6',
+          colorDanger: '#e05a4a',
+          fontFamily: 'IBM Plex Mono, monospace',
+          borderRadius: '0px'
+        }
+      }
+    });
+    cardElement = elements.create('card');
+    cardElement.mount('#card-element');
+    cardElement.on('change', function(event) {
+      document.getElementById('card-errors').textContent = event.error ? event.error.message : '';
+    });
+  }
+
+  function openModal(productName, price) {
+    currentProduct = { name: productName, price };
+    document.getElementById('modalProductName').textContent = productName;
+    document.getElementById('modalProductPrice').textContent = '$' + price + ' — Free shipping within the US';
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (!stripe) initStripe();
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  async function handleCheckout() {
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Processing...';
+    btn.disabled = true;
+
+    // This function should call your backend to create a PaymentIntent,
+    // then confirm payment with Stripe. See: https://stripe.com/docs/payments/accept-a-payment
+    // For now it shows a setup reminder.
+    setTimeout(() => {
+      alert('Stripe backend not yet connected.\n\nTo enable payments:\n1. Add your Stripe publishable key to the STRIPE_KEY variable\n2. Set up a small backend (or use Stripe Payment Links as a quick alternative)');
+      btn.textContent = 'Complete Purchase';
+      btn.disabled = false;
+    }, 800);
+  }
+
+  // Smooth scroll offset for fixed nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+
+<iframe name="__privateStripeMetricsController3290" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="./Backlit Electric _ Handmade Pedals _ Austin, Texas_files/m-outer-3437aaddcdf6922d623e172c2d6f9278.html" aria-hidden="true" tabindex="-1" style="border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: initial !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body></html>
