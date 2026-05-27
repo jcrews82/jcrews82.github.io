@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- saved from url=(0044)file:///Users/jeffcrews/Downloads/index.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Backlit Electric | Handmade Pedals | Austin, Texas</title>
 <meta name="description" content="Backlit Electric handcrafted pedals, hand-wired in Austin Texas. Boutique clones built with carefully sourced components and acid-etched enclosures.">
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./Backlit Electric _ Handmade Pedals _ Austin, Texas_files/css2" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --black: #0d0d0b;
@@ -111,17 +111,21 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('wood-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.18;
-  }
-
-  .hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(13,13,11,0.3) 0%, rgba(13,13,11,0.85) 100%);
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(200,136,42,0.04) 39px,
+        rgba(200,136,42,0.04) 40px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 39px,
+        rgba(200,136,42,0.04) 39px,
+        rgba(200,136,42,0.04) 40px
+      );
   }
 
   .hero-glow {
@@ -633,11 +637,11 @@
 
 <!-- NAV -->
 <nav>
-  <a href="file:///Users/jeffcrews/Downloads/index.html#home" class="nav-logo">Backlit Electric</a>
+  <a href="#home" class="nav-logo">Backlit Electric</a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="file:///Users/jeffcrews/Downloads/index.html#shop" onclick="closeNav()">Shop</a></li>
-    <li><a href="file:///Users/jeffcrews/Downloads/index.html#gallery" onclick="closeNav()">Gallery</a></li>
-    <li><a href="file:///Users/jeffcrews/Downloads/index.html#about" onclick="closeNav()">About</a></li>
+    <li><a href="#shop" onclick="closeNav()">Shop</a></li>
+    <li><a href="#gallery" onclick="closeNav()">Gallery</a></li>
+    <li><a href="#about" onclick="closeNav()">About</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleNav()">
     <span></span><span></span><span></span>
@@ -653,8 +657,8 @@
     <h1>Backlit<br><span>Electric</span></h1>
     <p class="hero-sub">Hand-wired pedals. Carefully sourced components.</p>
     <div class="hero-cta">
-      <a href="file:///Users/jeffcrews/Downloads/index.html#shop" class="btn btn-primary">Shop Pedals</a>
-      <a href="file:///Users/jeffcrews/Downloads/index.html#about" class="btn btn-ghost">The Story</a>
+      <a href="#shop" class="btn btn-primary">Shop Pedals</a>
+      <a href="#about" class="btn btn-ghost">The Story</a>
     </div>
   </div>
 </section>
@@ -675,11 +679,11 @@
       <div class="pedal-card">
         <div class="pedal-img-placeholder">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"></rect>
-            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
           </svg>
         </div>
         <div>
@@ -690,7 +694,7 @@
         <p class="pedal-desc">A faithful hand-wired clone of the Basic Audio Scarab Deluxe. Thick, harmonically rich fuzz with a wide range of tones from vintage to blown-out. Carefully sourced components, hand-wired point-to-point.</p>
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
-          <button class="buy-btn" onclick="openModal(&#39;Scarab Deluxe Fuzz&#39;, 125)">Buy Now</button>
+          <button class="buy-btn" onclick="openModal('Scarab Deluxe Fuzz', 125)">Buy Now</button>
         </div>
       </div>
 
@@ -698,11 +702,11 @@
       <div class="pedal-card">
         <div class="pedal-img-placeholder">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"></rect>
-            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
           </svg>
         </div>
         <div>
@@ -713,7 +717,7 @@
         <p class="pedal-desc">Clone of the JHS Crayon — a full-range, transparent overdrive that plays well with everything. Preserves your tone while adding warmth and grit.</p>
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
-          <button class="buy-btn" onclick="openModal(&#39;The Crayon Overdrive&#39;, 125)">Buy Now</button>
+          <button class="buy-btn" onclick="openModal('The Crayon Overdrive', 125)">Buy Now</button>
         </div>
       </div>
 
@@ -721,11 +725,11 @@
       <div class="pedal-card">
         <div class="pedal-img-placeholder">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"></rect>
-            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
           </svg>
         </div>
         <div>
@@ -736,7 +740,7 @@
         <p class="pedal-desc">Hand-wired clone of the EQD Black Ash. A gnarly, asymmetric fuzz-distortion hybrid with a massive low end and aggressive harmonic content.</p>
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
-          <button class="buy-btn" onclick="openModal(&#39;Black Ash Fuzz&#39;, 125)">Buy Now</button>
+          <button class="buy-btn" onclick="openModal('Black Ash Fuzz', 125)">Buy Now</button>
         </div>
       </div>
 
@@ -744,11 +748,11 @@
       <div class="pedal-card">
         <div class="pedal-img-placeholder">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"></rect>
-            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
-            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"></circle>
+            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
+            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
           </svg>
         </div>
         <div>
@@ -759,7 +763,7 @@
         <p class="pedal-desc">Clone of the Catalinbread Karma Sutra. A warm, touch-sensitive overdrive inspired by pushed tape saturation. Responsive and musical at any gain level.</p>
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
-          <button class="buy-btn" onclick="openModal(&#39;Karma Sutra Overdrive&#39;, 125)">Buy Now</button>
+          <button class="buy-btn" onclick="openModal('Karma Sutra Overdrive', 125)">Buy Now</button>
         </div>
       </div>
 
@@ -815,24 +819,24 @@
     <div class="section-rule"></div>
 
     <div class="gallery-tabs">
-      <button class="tab-btn active" onclick="switchTab(&#39;pedals&#39;)">Pedals</button>
-      <button class="tab-btn" onclick="switchTab(&#39;guitars&#39;)">Guitars</button>
-      <button class="tab-btn" onclick="switchTab(&#39;amps&#39;)">Amplifiers</button>
+      <button class="tab-btn active" onclick="switchTab('pedals')">Pedals</button>
+      <button class="tab-btn" onclick="switchTab('guitars')">Guitars</button>
+      <button class="tab-btn" onclick="switchTab('amps')">Amplifiers</button>
     </div>
 
     <div class="tab-panel active" id="tab-pedals">
       <p class="gallery-note">// Photos coming soon — check back shortly</p>
-      <div class="gallery-grid" id="pedalGallery"><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div></div>
+      <div class="gallery-grid" id="pedalGallery"></div>
     </div>
 
     <div class="tab-panel" id="tab-guitars">
       <p class="gallery-note">// Guitars are no longer offered for sale — this is an archive of past builds</p>
-      <div class="gallery-grid" id="guitarGallery"><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div></div>
+      <div class="gallery-grid" id="guitarGallery"></div>
     </div>
 
     <div class="tab-panel" id="tab-amps">
       <p class="gallery-note">// Amplifiers are no longer offered for sale — this is an archive of past builds</p>
-      <div class="gallery-grid" id="ampGallery"><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div><div class="gallery-item"><div class="gallery-placeholder"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="1" stroke="currentColor" stroke-width="1"></rect><path d="M3 19l7-7 5 5 3-3 7 7" stroke="currentColor" stroke-width="1"></path><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1"></circle></svg><span>Photo</span></div></div></div>
+      <div class="gallery-grid" id="ampGallery"></div>
     </div>
   </div>
 </section>
@@ -887,7 +891,7 @@
 </footer>
 
 <!-- STRIPE JS -->
-<script src="./Backlit Electric _ Handmade Pedals _ Austin, Texas_files/saved_resource"></script>
+<script src="https://js.stripe.com/v3/"></script>
 
 <script>
   // ── Nav toggle
@@ -990,6 +994,5 @@
     });
   });
 </script>
-
-
-<iframe name="__privateStripeMetricsController3290" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="./Backlit Electric _ Handmade Pedals _ Austin, Texas_files/m-outer-3437aaddcdf6922d623e172c2d6f9278.html" aria-hidden="true" tabindex="-1" style="border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: initial !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body></html>
+</body>
+</html>
