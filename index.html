@@ -102,9 +102,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     text-align: center;
-    padding: 6rem 2rem 5rem;
+    padding: 6rem 2rem 4rem;
     position: relative;
     overflow: hidden;
   }
@@ -112,7 +112,7 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('hero-bg.jpg');
+    background-image: url('wood-desktop.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -124,9 +124,23 @@
     background: linear-gradient(
       to bottom,
       rgba(13,13,11,0.3) 0%,
-      rgba(13,13,11,0.45) 60%,
-      rgba(13,13,11,0.85) 100%
+      rgba(13,13,11,0.5) 70%,
+      rgba(13,13,11,0.88) 100%
     );
+  }
+
+  @media (max-width: 700px) {
+    .hero-bg {
+      background-image: url('wood-mobile.jpg');
+      background-position: center top;
+    }
+  }
+
+  .hero-logo {
+    width: min(500px, 85vw);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
   }
 
   .hero-glow {
@@ -654,6 +668,7 @@
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
+    <img src="logo.png" alt="Backlit Electric" class="hero-logo">
     <p class="hero-eyebrow">Austin, Texas — Est. 2001</p>
     <p class="hero-sub" style="margin-bottom:3rem; font-size:0.95rem;">Hand-wired pedals. Carefully sourced components. Obsessive attention to detail.</p>
     <div class="hero-cta">
