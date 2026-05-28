@@ -675,7 +675,7 @@
       <p class="section-label">Available Now</p>
       <h2>The Pedals</h2>
       <div class="section-rule"></div>
-      <p class="stripe-note">// Ships from Austin, TX</p>
+      <p class="stripe-note">// $15 flat rate shipping &nbsp;·&nbsp; US and Canada only</p>
     </div>
 
     <div class="pedals-grid">
@@ -787,7 +787,7 @@
         Complete Purchase — <span id="modalAmount"></span>
       </button>
       <p style="font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:#8a8678; text-align:center; margin-top:0.75rem;">
-        Secured by Stripe &nbsp;·&nbsp; Free shipping within the US
+        Secured by Stripe &nbsp;·&nbsp; Ships to US and Canada only
       </p>
     </div>
   </div>
@@ -865,7 +865,7 @@
     <a href="https://www.instagram.com/backlitelectric/" target="_blank" style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:#c8882a; text-decoration:none;">Instagram</a>
     <a href="mailto:jeff@backlitelectric.com" style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:#c8882a; text-decoration:none;">jeff@backlitelectric.com</a>
   </div>
-  <p style="font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:#8a8678; max-width:600px; margin:0.75rem auto 0; line-height:1.6; text-align:center;">Ships within 3 business days from Austin, TX. All sales are final — but every pedal is covered by a lifetime warranty against defects and workmanship. If something arrives broken or stops working due to a build issue, we make it right.</p>
+  <p style="font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:#8a8678; max-width:600px; margin:0.75rem auto 0; line-height:1.6; text-align:center;">Ships within 3 business days from Austin, TX. $15 flat rate shipping to US and Canada — we do not ship outside of these regions. All sales are final — but every pedal is covered by a lifetime warranty against defects and workmanship. If something arrives broken or stops working due to a build issue, we make it right.</p>
 </footer>
 
 <!-- STRIPE JS -->
@@ -917,8 +917,8 @@
   async function openModal(productName, price) {
     currentProduct = { name: productName, price };
     document.getElementById('modalProductName').textContent = productName;
-    document.getElementById('modalProductPrice').textContent = 'Free shipping within the US';
-    document.getElementById('modalAmount').textContent = '$' + price;
+    document.getElementById('modalProductPrice').textContent = '$125 + $15 shipping = $140 total';
+    document.getElementById('modalAmount').textContent = '$140';
     document.getElementById('checkout-loading').style.display = 'block';
     document.getElementById('payment-element-container').style.display = 'none';
     document.getElementById('modalOverlay').classList.add('active');
@@ -928,7 +928,7 @@
       const res = await fetch('/.netlify/functions/create-payment-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: price, productName })
+        body: JSON.stringify({ amount: price + 15, productName })
       });
       const { clientSecret } = await res.json();
 
