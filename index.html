@@ -693,7 +693,7 @@
         <img src="images/for-sale/karma-sutra-inside.jpg" alt="Karma Sutra internals" style="width:100%; object-fit:cover; opacity:0.85; margin-top:-0.5rem;">
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
-          <a class="buy-btn" href="https://buy.stripe.com/dRmdR84KEdBM0J49mb8ww03" target="_blank">Buy Now</a>
+          <button class="buy-btn" onclick="openModal('Karma Sutra', 125)">Buy Now</button>
         </div>
       </div>
 
@@ -715,7 +715,7 @@
         <p class="pedal-desc">A silicon Tonebender MKII type circuit with variable low frequency input (FAT), Tone and Bias knobs. A bender that's not so GD persnickety.</p>
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
-          <a class="buy-btn" href="https://buy.stripe.com/bJe7sKb92gNY4Zk0PF8ww00" target="_blank">Buy Now</a>
+          <button class="buy-btn" onclick="openModal('Scarab Deluxe Fuzz', 125)">Buy Now</button>
         </div>
       </div>
 
@@ -737,7 +737,7 @@
         <p class="pedal-desc">Full-range preamp overdrive with controls for Master, Pre-Vol, Tilt, and a Hi-Pass toggle. Pre-Vol goes from gritty preamp drive to gated fuzz. The Tilt EQ is flat at noon — clockwise boosts highs, counterclockwise boosts bass. Hi-Pass cuts low end for lo-fi sounds with a 200Hz or 750Hz dip switch. Works on bass or guitar. Paint with all the colors of the wind.</p>
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
-          <a class="buy-btn" href="https://buy.stripe.com/6oU28qele2X82Rc41R8ww01" target="_blank">Buy Now</a>
+          <button class="buy-btn" onclick="openModal('The Crayon', 125)">Buy Now</button>
         </div>
       </div>
 
@@ -759,7 +759,7 @@
         <p class="pedal-desc">Handmade 3-knob silicon Tonebender, based on the elusive Black Ash — without the outrageous 'discontinued' markup.</p>
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
-          <a class="buy-btn" href="https://buy.stripe.com/00w4gydhafJU8bw9mb8ww02" target="_blank">Buy Now</a>
+          <button class="buy-btn" onclick="openModal('Black Ash Fuzz', 125)">Buy Now</button>
         </div>
       </div>
 
@@ -767,42 +767,28 @@
   </div>
 </section>
 
-<!-- STRIPE MODAL -->
+<!-- CHECKOUT MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
   <div class="modal">
     <div class="modal-header">
       <div>
-        <p class="modal-title" id="modalProductName">Scarab Deluxe Fuzz</p>
-        <p class="modal-sub" id="modalProductPrice">$125 — Free shipping within the US</p>
+        <p class="modal-title" id="modalProductName"></p>
+        <p class="modal-sub" id="modalProductPrice"></p>
       </div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
-    <div class="stripe-form">
-      <div class="form-group">
-        <label class="form-label">Name on card</label>
-        <input class="form-input" type="text" placeholder="John Smith" id="cardName">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Email</label>
-        <input class="form-input" type="email" placeholder="you@example.com" id="cardEmail">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Shipping address</label>
-        <input class="form-input" type="text" placeholder="Street address" id="shipAddress" style="margin-bottom:6px;">
-        <input class="form-input" type="text" placeholder="City, State, ZIP" id="shipCity">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Card details</label>
-        <div id="card-element"></div>
-        <div id="card-errors"></div>
-      </div>
-      <div class="stripe-powered">
-        <svg width="38" height="16" viewBox="0 0 38 16" fill="none"><text x="0" y="13" font-family="monospace" font-size="11" fill="#8a8678">Stripe</text></svg>
-        Payments secured by Stripe
-      </div>
-      <button class="btn btn-primary" id="submitBtn" onclick="handleCheckout()" style="width:100%; padding: 1rem; font-size: 0.8rem;">
-        Complete Purchase
+    <div id="checkout-loading" style="text-align:center; padding:2rem; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:#8a8678; letter-spacing:0.1em;">
+      Loading secure checkout...
+    </div>
+    <div id="payment-element-container" style="display:none;">
+      <div id="payment-element"></div>
+      <div id="payment-errors" style="font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:#e05a4a; margin-top:0.75rem; min-height:1.2em;"></div>
+      <button class="btn btn-primary" id="submitBtn" onclick="handleCheckout()" style="width:100%; padding:1rem; font-size:0.8rem; margin-top:1.25rem;">
+        Complete Purchase — <span id="modalAmount"></span>
       </button>
+      <p style="font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:#8a8678; text-align:center; margin-top:0.75rem;">
+        Secured by Stripe &nbsp;·&nbsp; Free shipping within the US
+      </p>
     </div>
   </div>
 </div>
@@ -924,41 +910,52 @@
   buildGallery('guitarGallery', 'guitars');
   buildGallery('ampGallery', 'amps');
 
-  // ── Stripe checkout modal
-  let stripe, cardElement, currentProduct;
+  // ── Stripe embedded checkout
+  const STRIPE_PK = 'pk_live_51TblhnAluVLndNxlORIB15IBBS4EgcftJ77GMOdpkSAM8w8P987VCeXuO5vlY3DFH0EpDSkZDEEhkyP9ZtdNhQ5m00Fe3WEZ1s';
+  let stripe, elements, currentProduct;
 
-  function initStripe() {
-    // Replace with your Stripe publishable key
-    const STRIPE_KEY = 'pk_test_51TblhnAluVLndNxlORIB15IBBS4EgcftJ77GMOdpkSAM8w8P987VCeXuO5vlY3DFH0EpDSkZDEEhkyP9ZtdNhQ5m00Fe3WEZ1s';
-    if (STRIPE_KEY.includes('YOUR_PUBLISHABLE_KEY')) return;
-    stripe = Stripe(STRIPE_KEY);
-    const elements = stripe.elements({
-      appearance: {
-        theme: 'night',
-        variables: {
-          colorPrimary: '#c8882a',
-          colorBackground: '#111110',
-          colorText: '#f0ede6',
-          colorDanger: '#e05a4a',
-          fontFamily: 'IBM Plex Mono, monospace',
-          borderRadius: '0px'
-        }
-      }
-    });
-    cardElement = elements.create('card');
-    cardElement.mount('#card-element');
-    cardElement.on('change', function(event) {
-      document.getElementById('card-errors').textContent = event.error ? event.error.message : '';
-    });
-  }
-
-  function openModal(productName, price) {
+  async function openModal(productName, price) {
     currentProduct = { name: productName, price };
     document.getElementById('modalProductName').textContent = productName;
-    document.getElementById('modalProductPrice').textContent = '$' + price + ' — Free shipping within the US';
+    document.getElementById('modalProductPrice').textContent = 'Free shipping within the US';
+    document.getElementById('modalAmount').textContent = '$' + price;
+    document.getElementById('checkout-loading').style.display = 'block';
+    document.getElementById('payment-element-container').style.display = 'none';
     document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
-    if (!stripe) initStripe();
+
+    try {
+      const res = await fetch('/.netlify/functions/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: price, productName })
+      });
+      const { clientSecret } = await res.json();
+
+      stripe = Stripe(STRIPE_PK);
+      elements = stripe.elements({
+        clientSecret,
+        appearance: {
+          theme: 'night',
+          variables: {
+            colorPrimary: '#c8882a',
+            colorBackground: '#111110',
+            colorText: '#f0ede6',
+            colorDanger: '#e05a4a',
+            fontFamily: 'IBM Plex Mono, monospace',
+            borderRadius: '0px'
+          }
+        }
+      });
+
+      const paymentElement = elements.create('payment');
+      paymentElement.mount('#payment-element');
+
+      document.getElementById('checkout-loading').style.display = 'none';
+      document.getElementById('payment-element-container').style.display = 'block';
+    } catch(err) {
+      document.getElementById('checkout-loading').textContent = 'Error loading checkout. Please try again.';
+    }
   }
 
   function closeModal() {
@@ -975,14 +972,27 @@
     btn.textContent = 'Processing...';
     btn.disabled = true;
 
-    // This function should call your backend to create a PaymentIntent,
-    // then confirm payment with Stripe. See: https://stripe.com/docs/payments/accept-a-payment
-    // For now it shows a setup reminder.
-    setTimeout(() => {
-      alert('Stripe backend not yet connected.\n\nTo enable payments:\n1. Add your Stripe publishable key to the STRIPE_KEY variable\n2. Set up a small backend (or use Stripe Payment Links as a quick alternative)');
-      btn.textContent = 'Complete Purchase';
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        return_url: 'https://backlitelectric.com?order=success'
+      }
+    });
+
+    if (error) {
+      document.getElementById('payment-errors').textContent = error.message;
+      btn.textContent = 'Complete Purchase — $' + currentProduct.price;
       btn.disabled = false;
-    }, 800);
+    }
+  }
+
+  // Show success message if returning from Stripe
+  if (new URLSearchParams(window.location.search).get('order') === 'success') {
+    const banner = document.createElement('div');
+    banner.style.cssText = 'position:fixed;top:56px;left:0;right:0;background:#c8882a;color:#0d0d0b;text-align:center;padding:0.75rem;font-family:IBM Plex Mono,monospace;font-size:0.8rem;letter-spacing:0.1em;z-index:99;';
+    banner.textContent = "Order received — thank you! We'll ship within 3 business days.";
+    document.body.appendChild(banner);
+    setTimeout(() => banner.remove(), 8000);
   }
 
   // Smooth scroll offset for fixed nav
