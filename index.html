@@ -112,21 +112,17 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background:
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 39px,
-        rgba(200,136,42,0.04) 39px,
-        rgba(200,136,42,0.04) 40px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 39px,
-        rgba(200,136,42,0.04) 39px,
-        rgba(200,136,42,0.04) 40px
-      );
+    background-image: url('wood-desktop.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.08;
+  }
+
+  @media (max-width: 700px) {
+    .hero-bg {
+      background-image: url('wood-mobile.jpg');
+      background-position: center top;
+    }
   }
 
   .hero-logo {
