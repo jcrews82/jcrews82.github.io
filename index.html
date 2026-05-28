@@ -112,31 +112,21 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-color: var(--black);
-  }
-
-  .hero-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('wood-desktop.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.12;
-  }
-
-  .hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, rgba(13,13,11,0) 0%, rgba(13,13,11,0.6) 100%);
-  }
-
-  @media (max-width: 700px) {
-    .hero-bg::before {
-      background-image: url('wood-mobile.jpg');
-      background-position: center top;
-    }
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(200,136,42,0.04) 39px,
+        rgba(200,136,42,0.04) 40px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 39px,
+        rgba(200,136,42,0.04) 39px,
+        rgba(200,136,42,0.04) 40px
+      );
   }
 
   .hero-logo {
@@ -672,9 +662,9 @@
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <img src="logo.png" alt="Backlit Electric" class="hero-logo">
     <p class="hero-eyebrow">Austin, Texas — Est. 2001</p>
-    <p class="hero-sub" style="margin-bottom:3rem; font-size:0.95rem;">Hand-wired pedals. Carefully sourced components. Obsessive attention to detail.</p>
+    <h1>Backlit<br><span>Electric</span></h1>
+    <p class="hero-sub">Hand-wired pedals. Carefully sourced components. Obsessive attention to detail.</p>
     <div class="hero-cta">
       <a href="#shop" class="btn btn-primary">Shop Pedals</a>
       <a href="#about" class="btn btn-ghost">The Story</a>
