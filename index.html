@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Backlit Electric | Handmade Pedals | Austin, Texas</title>
 <meta name="description" content="Backlit Electric handcrafted pedals, hand-wired in Austin Texas. Carefully sourced components. Obsessive attention to detail.">
-
 <!-- Open Graph / iMessage / Social Preview -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://backlitelectric.com">
@@ -36,11 +35,8 @@
     --border-strong: rgba(200,136,42,0.55);
     --text-muted: #8a8678;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--black);
     color: var(--off-white);
@@ -49,7 +45,6 @@
     font-size: 16px;
     line-height: 1.7;
   }
-
   /* ─── NAV ─── */
   nav {
     position: fixed;
@@ -64,7 +59,6 @@
     justify-content: space-between;
     height: 56px;
   }
-
   .nav-logo {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.4rem;
@@ -72,13 +66,11 @@
     color: var(--amber);
     text-decoration: none;
   }
-
   .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
   }
-
   .nav-links a {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
@@ -88,9 +80,7 @@
     text-decoration: none;
     transition: color 0.2s;
   }
-
   .nav-links a:hover { color: var(--amber-light); }
-
   .hamburger {
     display: none;
     background: none;
@@ -100,7 +90,6 @@
     gap: 5px;
     padding: 4px;
   }
-
   .hamburger span {
     display: block;
     width: 22px;
@@ -108,7 +97,6 @@
     background: var(--amber);
     transition: all 0.3s;
   }
-
   /* ─── HERO ─── */
   #home {
     min-height: 100vh;
@@ -121,7 +109,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .hero-bg {
     position: absolute;
     inset: 0;
@@ -130,14 +117,12 @@
     background-position: center;
     opacity: 0.08;
   }
-
   @media (max-width: 700px) {
     .hero-bg {
       background-image: url('wood-mobile.jpg');
       background-position: center top;
     }
   }
-
   .hero-logo {
     width: min(500px, 80vw);
     margin-bottom: 1.5rem;
@@ -145,7 +130,6 @@
     z-index: 1;
     filter: brightness(0) saturate(100%) invert(58%) sepia(55%) saturate(600%) hue-rotate(5deg) brightness(95%);
   }
-
   .hero-glow {
     position: absolute;
     top: 40%;
@@ -156,9 +140,7 @@
     background: radial-gradient(circle, rgba(200,136,42,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
-
   .hero-content { position: relative; z-index: 1; }
-
   .hero-eyebrow {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
@@ -167,7 +149,6 @@
     color: var(--amber);
     margin-bottom: 1.5rem;
   }
-
   h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(4rem, 12vw, 9rem);
@@ -176,9 +157,7 @@
     color: var(--off-white);
     margin-bottom: 0.3em;
   }
-
   h1 span { color: var(--amber); }
-
   .hero-sub {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.85rem;
@@ -186,14 +165,12 @@
     letter-spacing: 0.08em;
     margin-bottom: 3rem;
   }
-
   .hero-cta {
     display: inline-flex;
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
   }
-
   .btn {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
@@ -205,31 +182,25 @@
     cursor: pointer;
     border: none;
   }
-
   .btn-primary {
     background: var(--amber);
     color: var(--black);
     font-weight: 500;
   }
-
   .btn-primary:hover {
     background: var(--amber-light);
   }
-
   .btn-ghost {
     background: transparent;
     color: var(--off-white);
     border: 0.5px solid var(--border-strong);
   }
-
   .btn-ghost:hover {
     border-color: var(--amber);
     color: var(--amber-light);
   }
-
   /* ─── SECTIONS ─── */
   section { padding: 6rem 2rem; }
-
   .section-label {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.68rem;
@@ -238,7 +209,6 @@
     color: var(--amber);
     margin-bottom: 0.75rem;
   }
-
   h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -247,35 +217,28 @@
     color: var(--off-white);
     margin-bottom: 1rem;
   }
-
   .section-rule {
     width: 48px;
     height: 1px;
     background: var(--amber);
     margin-bottom: 3rem;
   }
-
   /* ─── SHOP ─── */
   #shop { background: var(--dark-surface); }
-
   .shop-inner { max-width: 1100px; margin: 0 auto; }
-
   .shop-header { margin-bottom: 3rem; }
-
   .stripe-note {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     color: var(--text-muted);
     margin-top: 0.5rem;
   }
-
   .pedals-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5px;
     border: 1.5px solid var(--border);
   }
-
   .pedal-card {
     background: var(--mid-surface);
     padding: 2rem;
@@ -284,9 +247,7 @@
     gap: 1rem;
     transition: background 0.2s;
   }
-
   .pedal-card:hover { background: #252520; }
-
   .pedal-img-placeholder {
     width: 100%;
     aspect-ratio: 1;
@@ -296,11 +257,9 @@
     align-items: center;
     justify-content: center;
   }
-
   .pedal-img-placeholder svg {
     opacity: 0.15;
   }
-
   .pedal-type {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.65rem;
@@ -308,7 +267,6 @@
     text-transform: uppercase;
     color: var(--amber);
   }
-
   .pedal-name {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.6rem;
@@ -316,21 +274,18 @@
     color: var(--off-white);
     line-height: 1;
   }
-
   .pedal-origin {
     font-size: 0.8rem;
     color: var(--text-muted);
     font-style: italic;
     margin-top: -0.5rem;
   }
-
   .pedal-desc {
     font-size: 0.85rem;
     color: #a09a8e;
     line-height: 1.6;
     flex: 1;
   }
-
   .pedal-footer {
     display: flex;
     align-items: center;
@@ -339,14 +294,12 @@
     padding-top: 1rem;
     margin-top: 0.5rem;
   }
-
   .pedal-price {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.8rem;
     color: var(--amber);
     letter-spacing: 0.05em;
   }
-
   .buy-btn {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
@@ -360,9 +313,7 @@
     font-weight: 500;
     transition: background 0.2s;
   }
-
   .buy-btn:hover { background: var(--amber-light); }
-
   /* ─── STRIPE MODAL ─── */
   .modal-overlay {
     display: none;
@@ -374,9 +325,7 @@
     justify-content: center;
     padding: 1rem;
   }
-
   .modal-overlay.active { display: flex; }
-
   .modal {
     background: var(--mid-surface);
     border: 0.5px solid var(--border-strong);
@@ -384,28 +333,24 @@
     width: 100%;
     padding: 2rem;
   }
-
   .modal-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 1.5rem;
   }
-
   .modal-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.6rem;
     letter-spacing: 0.04em;
     color: var(--off-white);
   }
-
   .modal-sub {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     color: var(--amber);
     margin-top: 0.2rem;
   }
-
   .modal-close {
     background: none;
     border: none;
@@ -415,13 +360,9 @@
     line-height: 1;
     padding: 4px;
   }
-
   .modal-close:hover { color: var(--off-white); }
-
   .stripe-form { display: flex; flex-direction: column; gap: 1rem; }
-
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-
   .form-label {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.68rem;
@@ -429,7 +370,6 @@
     text-transform: uppercase;
     color: var(--text-muted);
   }
-
   .form-input {
     background: #111110;
     border: 0.5px solid var(--border);
@@ -440,12 +380,10 @@
     width: 100%;
     transition: border-color 0.2s;
   }
-
   .form-input:focus {
     outline: none;
     border-color: var(--amber);
   }
-
   .stripe-powered {
     display: flex;
     align-items: center;
@@ -455,7 +393,6 @@
     color: var(--text-muted);
     margin-top: 0.5rem;
   }
-
   /* Stripe Elements placeholder */
   #card-element {
     background: #111110;
@@ -463,28 +400,22 @@
     padding: 0.9rem 1rem;
     min-height: 44px;
   }
-
   #card-element:focus-within { border-color: var(--amber); }
-
   #card-errors {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     color: #e05a4a;
     min-height: 1.2em;
   }
-
   /* ─── GALLERY ─── */
   #gallery { background: var(--black); }
-
   .gallery-inner { max-width: 1100px; margin: 0 auto; }
-
   .gallery-tabs {
     display: flex;
     gap: 0;
     margin-bottom: 2rem;
     border-bottom: 0.5px solid var(--border);
   }
-
   .tab-btn {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
@@ -499,17 +430,13 @@
     margin-bottom: -0.5px;
     transition: all 0.2s;
   }
-
   .tab-btn.active {
     color: var(--amber);
     border-bottom-color: var(--amber);
   }
-
   .tab-btn:hover { color: var(--off-white); }
-
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
-
   .gallery-note {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
@@ -519,13 +446,11 @@
     padding: 1rem;
     border-left: 2px solid var(--border-strong);
   }
-
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5px;
   }
-
   .gallery-item {
     aspect-ratio: 1;
     background: var(--mid-surface);
@@ -536,16 +461,13 @@
     overflow: hidden;
     position: relative;
   }
-
   .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s;
   }
-
   .gallery-item:hover img { transform: scale(1.04); }
-
   .gallery-placeholder {
     width: 100%;
     height: 100%;
@@ -559,10 +481,8 @@
     flex-direction: column;
     gap: 0.5rem;
   }
-
   /* ─── ABOUT ─── */
   #about { background: var(--dark-surface); }
-
   .about-inner {
     max-width: 900px;
     margin: 0 auto;
@@ -571,20 +491,16 @@
     gap: 4rem;
     align-items: start;
   }
-
   .about-text p {
     color: #a09a8e;
     font-size: 0.95rem;
     margin-bottom: 1.2rem;
   }
-
   .about-text p:first-child { color: var(--off-white); font-size: 1.05rem; }
-
   .about-specs {
     border: 0.5px solid var(--border);
     padding: 2rem;
   }
-
   .spec-row {
     display: flex;
     flex-direction: column;
@@ -592,9 +508,7 @@
     padding: 1rem 0;
     border-bottom: 0.5px solid var(--border);
   }
-
   .spec-row:last-child { border-bottom: none; }
-
   .spec-key {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.65rem;
@@ -602,12 +516,10 @@
     text-transform: uppercase;
     color: var(--amber);
   }
-
   .spec-val {
     font-size: 0.88rem;
     color: var(--off-white);
   }
-
   /* ─── FOOTER ─── */
   footer {
     background: #080807;
@@ -615,7 +527,6 @@
     padding: 2rem;
     text-align: center;
   }
-
   .footer-logo {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.2rem;
@@ -623,7 +534,6 @@
     color: var(--amber);
     margin-bottom: 0.5rem;
   }
-
   .footer-text {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.65rem;
@@ -631,7 +541,6 @@
     color: var(--text-muted);
     text-transform: uppercase;
   }
-
   /* ─── RESPONSIVE ─── */
   @media (max-width: 700px) {
     .nav-links { display: none; }
@@ -652,7 +561,6 @@
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <a href="#home" class="nav-logo">Backlit Electric</a>
@@ -665,7 +573,6 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <!-- HERO -->
 <section id="home">
   <div class="hero-bg"></div>
@@ -680,7 +587,6 @@
     </div>
   </div>
 </section>
-
 <!-- SHOP -->
 <section id="shop">
   <div class="shop-inner">
@@ -690,9 +596,7 @@
       <div class="section-rule"></div>
       <p class="stripe-note">// $15 flat rate shipping &nbsp;·&nbsp; US and Canada only</p>
     </div>
-
     <div class="pedals-grid">
-
       <!-- Catalinbread Karma Sutra Clone -->
       <div class="pedal-card">
         <div class="pedal-img-placeholder" style="position:relative; overflow:hidden; background:#111110;">
@@ -709,77 +613,57 @@
           <button class="buy-btn" onclick="openModal('Karma Sutra', 125)">Buy Now</button>
         </div>
       </div>
-
       <!-- Scarab Deluxe Clone -->
       <div class="pedal-card">
-        <div class="pedal-img-placeholder">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
-          </svg>
+        <div class="pedal-img-placeholder" style="position:relative; overflow:hidden; background:#111110;">
+          <img src="images/for-sale/scarab-deluxe.jpeg" alt="Scarab Deluxe Fuzz" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div>
           <p class="pedal-type">Fuzz</p>
           <p class="pedal-name">Scarab Deluxe</p>
         </div>
         <p class="pedal-desc">A silicon Tonebender MKII type circuit with variable low frequency input (FAT), Tone and Bias knobs. A bender that's not so GD persnickety.</p>
+        <img src="images/for-sale/scarab-deluxe-inside.jpeg" alt="Scarab Deluxe internals" style="width:100%; object-fit:cover; opacity:0.85; margin-top:-0.5rem;">
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
           <button class="buy-btn" onclick="openModal('Scarab Deluxe Fuzz', 125)">Buy Now</button>
         </div>
       </div>
-
       <!-- JHS Crayon Clone -->
       <div class="pedal-card">
-        <div class="pedal-img-placeholder">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
-          </svg>
+        <div class="pedal-img-placeholder" style="position:relative; overflow:hidden; background:#111110;">
+          <img src="images/for-sale/the-crayon.jpeg" alt="The Crayon Fuzz" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div>
           <p class="pedal-type">Fuzz</p>
           <p class="pedal-name">The Crayon</p>
         </div>
         <p class="pedal-desc">Full-range preamp overdrive with controls for Master, Pre-Vol, Tilt, and a Hi-Pass toggle. Pre-Vol goes from gritty preamp drive to gated fuzz. The Tilt EQ is flat at noon — clockwise boosts highs, counterclockwise boosts bass. Hi-Pass cuts low end for lo-fi sounds with a 200Hz or 750Hz dip switch. Works on bass or guitar. Paint with all the colors of the wind.</p>
+        <img src="images/for-sale/the-crayon-inside.jpeg" alt="The Crayon internals" style="width:100%; object-fit:cover; opacity:0.85; margin-top:-0.5rem;">
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
           <button class="buy-btn" onclick="openModal('The Crayon', 125)">Buy Now</button>
         </div>
       </div>
-
       <!-- EQD Black Ash Clone -->
       <div class="pedal-card">
-        <div class="pedal-img-placeholder">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <rect x="12" y="8" width="40" height="48" rx="2" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="32" cy="24" r="8" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="20" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="32" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
-            <circle cx="44" cy="42" r="4" stroke="#c8882a" stroke-width="1"/>
-          </svg>
+        <div class="pedal-img-placeholder" style="position:relative; overflow:hidden; background:#111110;">
+          <img src="images/for-sale/black-ash.jpeg" alt="Black Ash Fuzz" style="width:100%; height:100%; object-fit:cover; display:block;">
         </div>
         <div>
           <p class="pedal-type">Fuzz</p>
           <p class="pedal-name">Black Ash</p>
         </div>
         <p class="pedal-desc">Handmade 3-knob silicon Tonebender, based on the elusive Black Ash — without the outrageous 'discontinued' markup.</p>
+        <img src="images/for-sale/black-ash-inside.jpeg" alt="Black Ash internals" style="width:100%; object-fit:cover; opacity:0.85; margin-top:-0.5rem;">
         <div class="pedal-footer">
           <span class="pedal-price">$125</span>
           <button class="buy-btn" onclick="openModal('Black Ash Fuzz', 125)">Buy Now</button>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- CHECKOUT MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
   <div class="modal">
@@ -805,36 +689,30 @@
     </div>
   </div>
 </div>
-
 <!-- GALLERY -->
 <section id="gallery">
   <div class="gallery-inner">
     <p class="section-label">The Work</p>
     <h2>Gallery</h2>
     <div class="section-rule"></div>
-
     <div class="gallery-tabs">
       <button class="tab-btn active" onclick="switchTab('pedals')">Pedals</button>
       <button class="tab-btn" onclick="switchTab('guitars')">Guitars</button>
       <button class="tab-btn" onclick="switchTab('amps')">Amplifiers</button>
     </div>
-
     <div class="tab-panel active" id="tab-pedals">
       <div class="gallery-grid" id="pedalGallery"></div>
     </div>
-
     <div class="tab-panel" id="tab-guitars">
       <p class="gallery-note">// We aren't currently taking orders for guitars, but keep an eye on the shop — sometimes we have completed builds for sale there.</p>
       <div class="gallery-grid" id="guitarGallery"></div>
     </div>
-
     <div class="tab-panel" id="tab-amps">
       <p class="gallery-note">// We aren't currently taking orders for amplifiers, but keep an eye on the shop — sometimes we have completed builds for sale there.</p>
       <div class="gallery-grid" id="ampGallery"></div>
     </div>
   </div>
 </section>
-
 <!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
@@ -869,7 +747,6 @@
     </div>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <p class="footer-logo">Backlit Electric</p>
@@ -880,10 +757,8 @@
   </div>
   <p style="font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:#8a8678; max-width:600px; margin:0.75rem auto 0; line-height:1.6; text-align:center;">Ships within 3 business days from Austin, TX. $15 flat rate shipping to US and Canada — we do not ship outside of these regions. All sales are final — but every pedal is covered by a lifetime warranty against defects and workmanship. If something arrives broken or stops working due to a build issue, we make it right.</p>
 </footer>
-
 <!-- STRIPE JS -->
 <script src="https://js.stripe.com/v3/"></script>
-
 <script>
   // ── Nav toggle
   function toggleNav() {
@@ -892,7 +767,6 @@
   function closeNav() {
     document.getElementById('navLinks').classList.remove('open');
   }
-
   // ── Gallery tabs
   function switchTab(name) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -900,7 +774,6 @@
     document.getElementById('tab-' + name).classList.add('active');
     event.target.classList.add('active');
   }
-
   // Dynamic gallery loader — reads from images/[category]/list.json
   async function buildGallery(containerId, folder) {
     const el = document.getElementById(containerId);
@@ -918,15 +791,12 @@
       el.innerHTML = `<div class="gallery-placeholder" style="grid-column:1/-1; padding:3rem; opacity:0.4;">Photos coming soon</div>`;
     }
   }
-
   buildGallery('pedalGallery', 'pedals');
   buildGallery('guitarGallery', 'guitars');
   buildGallery('ampGallery', 'amps');
-
   // ── Stripe embedded checkout
   const STRIPE_PK = 'pk_live_51TblhgAgiKwqGyOcjdjiLLsbQyF6RA2tgYNUYvY0CaX1eBkxGKHDmh1XZ6RHra6Yen2IRI53lbIyyTZT7gmpjj5W00Ir0VTqDt';
   let stripe, elements, currentProduct;
-
   async function openModal(productName, price) {
     currentProduct = { name: productName, price };
     document.getElementById('modalProductName').textContent = productName;
@@ -936,7 +806,6 @@
     document.getElementById('payment-element-container').style.display = 'none';
     document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
-
     try {
       const res = await fetch('/.netlify/functions/create-payment-intent', {
         method: 'POST',
@@ -944,7 +813,6 @@
         body: JSON.stringify({ amount: price + 15, productName })
       });
       const { clientSecret } = await res.json();
-
       stripe = Stripe(STRIPE_PK);
       elements = stripe.elements({
         clientSecret,
@@ -960,45 +828,37 @@
           }
         }
       });
-
       const paymentElement = elements.create('payment');
       paymentElement.mount('#payment-element');
-
       document.getElementById('checkout-loading').style.display = 'none';
       document.getElementById('payment-element-container').style.display = 'block';
     } catch(err) {
       document.getElementById('checkout-loading').textContent = 'Error loading checkout. Please try again.';
     }
   }
-
   function closeModal() {
     document.getElementById('modalOverlay').classList.remove('active');
     document.body.style.overflow = '';
   }
-
   function closeModalOutside(e) {
     if (e.target === document.getElementById('modalOverlay')) closeModal();
   }
-
   async function handleCheckout() {
     const btn = document.getElementById('submitBtn');
     btn.textContent = 'Processing...';
     btn.disabled = true;
-
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         return_url: 'https://backlitelectric.com?order=success'
       }
     });
-
     if (error) {
       document.getElementById('payment-errors').textContent = error.message;
       btn.textContent = 'Complete Purchase — $' + currentProduct.price;
       btn.disabled = false;
     }
   }
-
   // Show success message if returning from Stripe
   if (new URLSearchParams(window.location.search).get('order') === 'success') {
     const banner = document.createElement('div');
@@ -1007,7 +867,6 @@
     document.body.appendChild(banner);
     setTimeout(() => banner.remove(), 8000);
   }
-
   // Smooth scroll offset for fixed nav
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
