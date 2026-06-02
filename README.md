@@ -1,50 +1,52 @@
-# Backlit Electric — How to Manage Photos
+# Backlit Electric — Site Management Guide
 
-## Folder Structure
-
-```
-images/
-  pedals/       ← pedal gallery photos
-  guitars/      ← guitar gallery photos
-  amps/         ← amp gallery photos
-  for-sale/     ← photos for active product listings
-```
+## IMPORTANT: Never open index.html in TextEdit
+TextEdit corrupts HTML files. Always edit index.html directly in the GitHub browser editor (pencil icon).
 
 ---
 
 ## Gallery Photos (pedals / guitars / amps)
 
-The gallery reads folder contents automatically — **no list.json needed.**
+### How it works
+Each gallery folder has a `list.json` file that controls what photos appear on the site. The gallery reads this file and displays the photos in the order listed.
 
-### To ADD a photo
-1. Go to github.com/jcrews82/jcrews82.github.io
-2. Navigate into the right folder (`images/pedals`, `images/guitars`, or `images/amps`)
-3. Click **Add file → Upload files** and drag your photo(s) in
-4. Commit — done. Photos appear on the site automatically.
+### To ADD photos
+1. Open GitHub Desktop
+2. Copy new photos into the correct folder in your local repo:
+   - `images/pedals/` for pedal gallery
+   - `images/guitars/` for guitar gallery
+   - `images/amps/` for amp gallery
+3. Commit and push in GitHub Desktop
+4. Get the updated file list from the GitHub API:
+   - `https://api.github.com/repos/jcrews82/jcrews82.github.io/contents/images/pedals`
+   - `https://api.github.com/repos/jcrews82/jcrews82.github.io/contents/images/guitars`
+   - `https://api.github.com/repos/jcrews82/jcrews82.github.io/contents/images/amps`
+5. Paste the API response to Claude and ask for a new randomized list.json
+6. Upload the new list.json to the correct folder in GitHub (replacing the old one)
 
 ### To REMOVE a photo
-1. Navigate to the right folder
-2. Click the photo file
-3. Click the trash icon to delete it
-4. Commit — it disappears from the site automatically.
+1. Delete the photo file from the folder in GitHub
+2. Get a new list.json generated (step 4-6 above)
 
 ---
 
 ## For-Sale Product Photos (images/for-sale/)
 
-These are wired directly into `index.html` — not automatic. Filenames must match exactly what's in the HTML.
-
-**Current filenames in use:**
+These are hardcoded into index.html. Current filenames in use:
 - `karma-sutra.jpg` + `karma-sutra-inside.jpg`
 - `scarab-deluxe.jpeg` + `scarab-deluxe-inside.jpeg`
 - `the-crayon.jpeg` + `the-crayon-inside.jpeg`
 - `black-ash.jpeg` + `black-ash-inside.jpeg`
 
-To add a new product photo, upload the file and update `index.html` to reference it.
+### To add a new for-sale product
+1. Upload exterior and interior photos to `images/for-sale/`
+2. Edit index.html in GitHub browser editor to add the new pedal card
+3. Ask Claude for the updated index.html if needed
 
 ---
 
 ## Rules
 - Filenames are case sensitive — `IMG_5901.JPG` is not the same as `img_5901.jpg`
 - Supported formats: `.jpg`, `.jpeg`, `.png`, `.webp`
-- Do not open `index.html` in TextEdit — it will corrupt the file. Use GitHub's browser editor instead.
+- Never open index.html in TextEdit — use GitHub browser editor only
+- Never upload files named `Attachment.png`, `image-asset.jpeg`, or `Untitled*.png` — these are junk files from bad exports
