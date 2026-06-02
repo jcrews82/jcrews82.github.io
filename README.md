@@ -54,7 +54,7 @@ Each tab reads a `list.json` file from its folder. **Only photos listed in `list
 
 ### Step 1 — Compress first (required)
 
-Every photo must be under 200kb or the gallery loads slowly. Run this in Terminal from inside your repo folder:
+Every photo must be under 200kb or the gallery loads slowly. Open Terminal, navigate to your repo folder, and run:
 
 ```bash
 find images/pedals images/guitars images/amps -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) | while read f; do
@@ -62,9 +62,9 @@ find images/pedals images/guitars images/amps -type f \( -iname "*.jpg" -o -inam
 done
 ```
 
-To get to your repo folder in Terminal: open GitHub Desktop → Repository menu → Open in Terminal. Or open Terminal, type `cd ` with a space, then drag your repo folder into the Terminal window and hit Enter.
+To get to your repo in Terminal: open Terminal, type `cd ` with a space, drag your repo folder into the Terminal window, hit Enter.
 
-This command is safe to run on already-compressed photos. Your originals in iCloud are not affected.
+Safe to run on already-compressed photos. Originals in iCloud are not affected.
 
 ### Step 2 — Copy photos into the right folder
 
@@ -74,7 +74,7 @@ This command is safe to run on already-compressed photos. Your originals in iClo
 
 ### Step 3 — Update list.json
 
-Open the `list.json` file for that folder in the GitHub browser editor and add your new filenames. The format is:
+Open the `list.json` for that folder in the GitHub browser editor and add your new filenames:
 
 ```json
 [
@@ -86,19 +86,19 @@ Open the `list.json` file for that folder in the GitHub browser editor and add y
 
 Rules:
 - Filenames must match exactly — same capitalization, same extension
-- Each entry is in quotes and separated by commas
+- Each entry is in quotes, separated by commas
 - No comma after the last entry
-- The whole thing is wrapped in `[ ]`
+- Whole thing wrapped in `[ ]`
 
 ### Step 4 — Commit and push
 
-In GitHub Desktop, type a summary (e.g. "add pedal photos") and click Commit. Then click Push Origin. The site updates within a minute or two.
+In GitHub Desktop, write a summary and click Commit. Then Push Origin. Site updates within a minute or two.
 
 ---
 
 ## Removing Gallery Photos
 
-1. Delete the image file from the folder (via GitHub Desktop or the GitHub browser)
+1. Delete the image file from the folder
 2. Remove its filename from `list.json`
 3. Commit and push
 
@@ -109,53 +109,48 @@ In GitHub Desktop, type a summary (e.g. "add pedal photos") and click Commit. Th
 ### Step 1 — Create a Stripe Payment Link
 
 1. Go to [dashboard.stripe.com](https://dashboard.stripe.com) and log in
-2. Click **Payment Links** in the left sidebar
-3. Click **+ Create payment link**
-4. Add a product: enter the pedal name and price (e.g. $125)
-5. Under **After payment**, set the confirmation page message or leave default
-6. Click **Create link**
-7. Copy the link — it looks like `https://buy.stripe.com/xxxxxxxxx`
-
-Note: Stripe does not add shipping automatically. If you want to collect $15 shipping, either set the product price to $140, or add a separate shipping line item in Stripe when creating the link.
+2. Click **Payment Links** → **+ Create payment link**
+3. Add product name and price ($125)
+4. Add shipping: $15 flat rate, US and Canada only
+5. Click **Create link** — copy the `https://buy.stripe.com/xxxxxxxxx` URL
 
 ### Step 2 — Add product photos
 
-Name your photos clearly, e.g. `pedal-name.jpg` and `pedal-name-inside.jpg`. Compress them first (see above), then upload to `images/for-sale/` via GitHub Desktop.
+Name them clearly: `pedal-name.jpg` and `pedal-name-inside.jpg`. Compress first, then upload to `images/for-sale/` via GitHub Desktop.
 
 ### Step 3 — Add the pedal card to index.html
 
-Open `index.html` in the GitHub browser editor (pencil icon). Find the `<div class="pedals-grid">` section. Copy this block and fill in your details:
+Open `index.html` in the GitHub browser editor. Find `<div class="pedals-grid">` and paste this block inside it, filling in your details:
 
 ```html
-<!-- YOUR PEDAL NAME -->
+<!-- PEDAL NAME -->
 <div class="pedal-card">
   <div class="pedal-img-wrap">
-    <img src="images/for-sale/YOUR-PHOTO.jpg" alt="Your Pedal Name">
+    <img src="images/for-sale/YOUR-PHOTO.jpg" alt="Pedal Name">
   </div>
   <div>
     <p class="pedal-type">Fuzz</p>
-    <p class="pedal-name">Your Pedal Name</p>
+    <p class="pedal-name">Pedal Name</p>
   </div>
   <p class="pedal-desc">Your description here.</p>
-  <img class="pedal-inside" src="images/for-sale/YOUR-PHOTO-inside.jpg" alt="Your Pedal internals">
+  <img class="pedal-inside" src="images/for-sale/YOUR-PHOTO-inside.jpg" alt="Pedal internals">
   <div class="pedal-footer">
     <span class="pedal-price">$125</span>
-    <a href="https://buy.stripe.com/YOUR_LINK_HERE" target="_blank" class="buy-btn">Buy Now</a>
+    <a href="https://buy.stripe.com/YOUR_LINK" target="_blank" class="buy-btn">Buy Now</a>
   </div>
 </div>
 ```
 
-Replace everything in ALL CAPS with your actual values. Commit and push when done.
+Commit and push.
 
 ---
 
 ## Removing a Sold Pedal
 
-1. Open `index.html` in the GitHub browser editor
-2. Find the `<div class="pedal-card">` block for that pedal
-3. Delete the entire block from `<!-- PEDAL NAME -->` through the closing `</div>`
-4. Commit and push
-5. Archive the Stripe Payment Link in your Stripe dashboard so it no longer accepts payments
+1. Open `index.html` in GitHub browser editor
+2. Delete the entire `<div class="pedal-card">` block for that pedal
+3. Commit and push
+4. Archive the Stripe Payment Link in your Stripe dashboard
 
 ---
 
@@ -170,9 +165,20 @@ Replace everything in ALL CAPS with your actual values. Commit and push when don
 
 ---
 
-## DNS Settings (GoDaddy)
+## Backing Out of Netlify
 
-The domain backlitelectric.com is registered at GoDaddy and points to GitHub Pages. Do not change these records unless something breaks.
+You are no longer using Netlify. The site runs entirely on GitHub Pages. To fully close out Netlify:
+
+1. Log into [app.netlify.com](https://app.netlify.com)
+2. Go to your site → **Site settings** → scroll to bottom → **Delete this site**
+3. After deleting the site, go to your **Team settings** → **Billing** → downgrade or cancel your plan
+4. Confirm your DNS in GoDaddy no longer points to any Netlify addresses (it shouldn't — you already fixed this)
+
+Your repo still has `netlify.toml` and `package.json` — if you haven't deleted those yet, do it now. They're dead weight.
+
+---
+
+## DNS Settings (GoDaddy) — Do Not Touch
 
 | Type | Name | Value |
 |------|------|-------|
@@ -182,14 +188,13 @@ The domain backlitelectric.com is registered at GoDaddy and points to GitHub Pag
 | A | @ | 185.199.111.153 |
 | CNAME | www | jcrews82.github.io. |
 
-The MX records and email settings are separate — do not touch those.
+MX/email records are separate — do not touch those.
 
 ---
 
 ## If the Site Goes Down
 
-1. Check [githubstatus.com](https://githubstatus.com) — GitHub Pages outages are rare but happen
-2. Check your DNS records in GoDaddy match the table above
-3. Check that the `CNAME` file in the repo root contains exactly: `backlitelectric.com`
-4. In your GitHub repo, go to Settings → Pages and confirm the source is set to `main` branch
-
+1. Check [githubstatus.com](https://githubstatus.com)
+2. Confirm DNS records in GoDaddy match the table above
+3. Confirm the `CNAME` file in the repo root contains exactly: `backlitelectric.com`
+4. Go to repo Settings → Pages → confirm source is `main` branch and custom domain is `backlitelectric.com`
