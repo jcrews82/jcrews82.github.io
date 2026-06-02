@@ -332,8 +332,6 @@
     max-width: 440px;
     width: 100%;
     padding: 2rem;
-    max-height: 90vh;
-    overflow-y: auto;
   }
   .modal-header {
     display: flex;
@@ -776,14 +774,15 @@
     document.getElementById('tab-' + name).classList.add('active');
     event.target.classList.add('active');
   }
-  // Dynamic gallery loader — reads from images/[category]/list.json
+  // Dynamic gallery loader — calls Netlify function to auto-read folder contents
+  // No list.json needed — just upload images to the folder and they appear automatically
   async function buildGallery(containerId, folder) {
     const el = document.getElementById(containerId);
     try {
-      const res = await fetch(`images/${folder}/list.json`);
+      const res = await fetch(`/.netlify/functions/list-images?category=${folder}`);
       const images = await res.json();
-      if (images.length === 0) {
-        el.innerHTML = `<div class="gallery-placeholder" style="grid-column:1/-1; padding:3rem; opacity:0.4;">No images yet</div>`;
+      if (!Array.isArray(images) || images.length === 0) {
+        el.innerHTML = `<div class="gallery-placeholder" style="grid-column:1/-1; padding:3rem; opacity:0.4;">Photos coming soon</div>`;
         return;
       }
       images.forEach(img => {
