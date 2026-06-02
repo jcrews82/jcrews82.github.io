@@ -424,6 +424,28 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+  .gallery-shuffle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+  }
+  .shuffle-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: 0.5px solid var(--border-strong);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .shuffle-btn:hover {
+    color: var(--amber-light);
+    border-color: var(--amber);
+  }
   #about { background: var(--dark-surface); }
   .about-inner {
     max-width: 900px;
@@ -627,20 +649,29 @@
     <h2>Gallery</h2>
     <div class="section-rule"></div>
     <div class="gallery-tabs">
-      <button class="tab-btn active" onclick="switchTab('pedals')">Pedals</button>
-      <button class="tab-btn" onclick="switchTab('guitars')">Guitars</button>
-      <button class="tab-btn" onclick="switchTab('amps')">Amplifiers</button>
+      <button class="tab-btn active" onclick="switchTab('pedals', event)">Pedals</button>
+      <button class="tab-btn" onclick="switchTab('guitars', event)">Guitars</button>
+      <button class="tab-btn" onclick="switchTab('amps', event)">Amplifiers</button>
     </div>
     <div class="tab-panel active" id="tab-pedals">
       <div class="gallery-grid" id="pedalGallery"></div>
+      <div class="gallery-shuffle">
+        <button class="shuffle-btn" onclick="shuffleGallery('pedalGallery', 'pedals')">// Shuffle</button>
+      </div>
     </div>
     <div class="tab-panel" id="tab-guitars">
       <p class="gallery-note">// We aren't currently taking orders for guitars, but keep an eye on the shop — sometimes we have completed builds for sale there.</p>
       <div class="gallery-grid" id="guitarGallery"></div>
+      <div class="gallery-shuffle">
+        <button class="shuffle-btn" onclick="shuffleGallery('guitarGallery', 'guitars')">// Shuffle</button>
+      </div>
     </div>
     <div class="tab-panel" id="tab-amps">
       <p class="gallery-note">// We aren't currently taking orders for amplifiers, but keep an eye on the shop — sometimes we have completed builds for sale there.</p>
       <div class="gallery-grid" id="ampGallery"></div>
+      <div class="gallery-shuffle">
+        <button class="shuffle-btn" onclick="shuffleGallery('ampGallery', 'amps')">// Shuffle</button>
+      </div>
     </div>
   </div>
 </section>
@@ -694,31 +725,69 @@
   function closeNav() {
     document.getElementById('navLinks').classList.remove('open');
   }
-  function switchTab(name) {
+  function switchTab(name, e) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + name).classList.add('active');
-    event.target.classList.add('active');
+    e.target.classList.add('active');
   }
+
+  // Cache: stores full image list per folder so we only fetch list.json once
+  var imageCache = {};
+  var GALLERY_COUNT = 15;
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function renderGallery(containerId, folder, images) {
+    var el = document.getElementById(containerId);
+    var picked = shuffle(images).slice(0, GALLERY_COUNT);
+    el.innerHTML = '';
+    picked.forEach(function(img) {
+      var div = document.createElement('div');
+      div.className = 'gallery-item';
+      var image = document.createElement('img');
+      image.src = 'images/' + folder + '/' + img;
+      image.alt = '';
+      image.loading = 'lazy';
+      image.onerror = function() { this.parentElement.style.display = 'none'; };
+      div.appendChild(image);
+      el.appendChild(div);
+    });
+  }
+
   async function buildGallery(containerId, folder) {
-    const el = document.getElementById(containerId);
+    var el = document.getElementById(containerId);
     try {
-      const res = await fetch('images/' + folder + '/list.json');
-      const images = await res.json();
-      if (images.length === 0) {
+      var res = await fetch('images/' + folder + '/list.json');
+      var images = await res.json();
+      if (!images || images.length === 0) {
         el.innerHTML = '<div class="gallery-placeholder" style="grid-column:1/-1; padding:3rem; opacity:0.4;">No images yet</div>';
         return;
       }
-      images.forEach(function(img) {
-        el.innerHTML += '<div class="gallery-item"><img src="images/' + folder + '/' + img + '" alt="" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>';
-      });
+      imageCache[folder] = images;
+      renderGallery(containerId, folder, images);
     } catch(e) {
       el.innerHTML = '<div class="gallery-placeholder" style="grid-column:1/-1; padding:3rem; opacity:0.4;">Photos coming soon</div>';
     }
   }
+
+  function shuffleGallery(containerId, folder) {
+    if (imageCache[folder]) {
+      renderGallery(containerId, folder, imageCache[folder]);
+    }
+  }
+
   buildGallery('pedalGallery', 'pedals');
   buildGallery('guitarGallery', 'guitars');
   buildGallery('ampGallery', 'amps');
+
   var STRIPE_PK = 'pk_live_51TblhgAgiKwqGyOcjdjiLLsbQyF6RA2tgYNUYvY0CaX1eBkxGKHDmh1XZ6RHra6Yen2IRI53lbIyyTZT7gmpjj5W00Ir0VTqDt';
   var stripe, elements, currentProduct;
   async function openModal(productName, price) {
