@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Backlit Electric | Handmade Pedals | Austin, Texas</title>
 <meta name="description" content="Backlit Electric handcrafted pedals, hand-wired in Austin Texas. Carefully sourced components. Obsessive attention to detail.">
-<!-- Open Graph / iMessage / Social Preview -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://backlitelectric.com">
 <meta property="og:title" content="Backlit Electric | Handmade Pedals | Austin, Texas">
@@ -45,7 +44,6 @@
     font-size: 16px;
     line-height: 1.7;
   }
-  /* ─── NAV ─── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -97,7 +95,6 @@
     background: var(--amber);
     transition: all 0.3s;
   }
-  /* ─── HERO ─── */
   #home {
     min-height: 100vh;
     display: flex;
@@ -122,13 +119,6 @@
       background-image: url('wood-mobile.jpg');
       background-position: center top;
     }
-  }
-  .hero-logo {
-    width: min(500px, 80vw);
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
-    filter: brightness(0) saturate(100%) invert(58%) sepia(55%) saturate(600%) hue-rotate(5deg) brightness(95%);
   }
   .hero-glow {
     position: absolute;
@@ -187,9 +177,7 @@
     color: var(--black);
     font-weight: 500;
   }
-  .btn-primary:hover {
-    background: var(--amber-light);
-  }
+  .btn-primary:hover { background: var(--amber-light); }
   .btn-ghost {
     background: transparent;
     color: var(--off-white);
@@ -199,7 +187,6 @@
     border-color: var(--amber);
     color: var(--amber-light);
   }
-  /* ─── SECTIONS ─── */
   section { padding: 6rem 2rem; }
   .section-label {
     font-family: 'IBM Plex Mono', monospace;
@@ -223,7 +210,6 @@
     background: var(--amber);
     margin-bottom: 3rem;
   }
-  /* ─── SHOP ─── */
   #shop { background: var(--dark-surface); }
   .shop-inner { max-width: 1100px; margin: 0 auto; }
   .shop-header { margin-bottom: 3rem; }
@@ -257,9 +243,6 @@
     align-items: center;
     justify-content: center;
   }
-  .pedal-img-placeholder svg {
-    opacity: 0.15;
-  }
   .pedal-type {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.65rem;
@@ -273,12 +256,6 @@
     letter-spacing: 0.04em;
     color: var(--off-white);
     line-height: 1;
-  }
-  .pedal-origin {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-style: italic;
-    margin-top: -0.5rem;
   }
   .pedal-desc {
     font-size: 0.85rem;
@@ -314,7 +291,6 @@
     transition: background 0.2s;
   }
   .buy-btn:hover { background: var(--amber-light); }
-  /* ─── STRIPE MODAL ─── */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -332,6 +308,8 @@
     max-width: 440px;
     width: 100%;
     padding: 2rem;
+    max-height: 90vh;
+    overflow-y: auto;
   }
   .modal-header {
     display: flex;
@@ -361,53 +339,18 @@
     padding: 4px;
   }
   .modal-close:hover { color: var(--off-white); }
-  .stripe-form { display: flex; flex-direction: column; gap: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-  .form-input {
-    background: #111110;
-    border: 0.5px solid var(--border);
-    color: var(--off-white);
-    padding: 0.75rem 1rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85rem;
-    width: 100%;
-    transition: border-color 0.2s;
-  }
-  .form-input:focus {
-    outline: none;
-    border-color: var(--amber);
-  }
-  .stripe-powered {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    margin-top: 0.5rem;
-  }
-  /* Stripe Elements placeholder */
   #card-element {
     background: #111110;
     border: 0.5px solid var(--border);
     padding: 0.9rem 1rem;
     min-height: 44px;
   }
-  #card-element:focus-within { border-color: var(--amber); }
   #card-errors {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     color: #e05a4a;
     min-height: 1.2em;
   }
-  /* ─── GALLERY ─── */
   #gallery { background: var(--black); }
   .gallery-inner { max-width: 1100px; margin: 0 auto; }
   .gallery-tabs {
@@ -481,7 +424,6 @@
     flex-direction: column;
     gap: 0.5rem;
   }
-  /* ─── ABOUT ─── */
   #about { background: var(--dark-surface); }
   .about-inner {
     max-width: 900px;
@@ -520,7 +462,6 @@
     font-size: 0.88rem;
     color: var(--off-white);
   }
-  /* ─── FOOTER ─── */
   footer {
     background: #080807;
     border-top: 0.5px solid var(--border);
@@ -541,7 +482,6 @@
     color: var(--text-muted);
     text-transform: uppercase;
   }
-  /* ─── RESPONSIVE ─── */
   @media (max-width: 700px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
@@ -561,7 +501,6 @@
 </style>
 </head>
 <body>
-<!-- NAV -->
 <nav>
   <a href="#home" class="nav-logo">Backlit Electric</a>
   <ul class="nav-links" id="navLinks">
@@ -573,7 +512,6 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-<!-- HERO -->
 <section id="home">
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
@@ -587,7 +525,6 @@
     </div>
   </div>
 </section>
-<!-- SHOP -->
 <section id="shop">
   <div class="shop-inner">
     <div class="shop-header">
@@ -597,7 +534,6 @@
       <p class="stripe-note">// $15 flat rate shipping &nbsp;·&nbsp; US and Canada only</p>
     </div>
     <div class="pedals-grid">
-      <!-- Catalinbread Karma Sutra Clone -->
       <div class="pedal-card">
         <div class="pedal-img-placeholder" style="position:relative; overflow:hidden; background:#111110;">
           <img src="images/for-sale/karma-sutra.jpg" alt="Karma Sutra Overdrive" style="width:100%; height:100%; object-fit:cover; display:block;">
@@ -613,7 +549,6 @@
           <button class="buy-btn" onclick="openModal('Karma Sutra', 125)">Buy Now</button>
         </div>
       </div>
-      <!-- Scarab Deluxe Clone -->
       <div class="pedal-card">
         <div class="pedal-img-placeholder" style="position:relative; overflow:hidden; background:#111110;">
           <img src="images/for-sale/scarab-deluxe.jpeg" alt="Scarab Deluxe Fuzz" style="width:100%; height:100%; object-fit:cover; display:block;">
@@ -629,7 +564,6 @@
           <button class="buy-btn" onclick="openModal('Scarab Deluxe Fuzz', 125)">Buy Now</button>
         </div>
       </div>
-      <!-- JHS Crayon Clone -->
       <div class="pedal-card">
         <div class="pedal-img-placeholder" style="position:relative; overflow:hidden; background:#111110;">
           <img src="images/for-sale/the-crayon.jpeg" alt="The Crayon Fuzz" style="width:100%; height:100%; object-fit:cover; display:block;">
@@ -645,7 +579,6 @@
           <button class="buy-btn" onclick="openModal('The Crayon', 125)">Buy Now</button>
         </div>
       </div>
-      <!-- EQD Black Ash Clone -->
       <div class="pedal-card">
         <div class="pedal-img-placeholder" style="position:relative; overflow:hidden; background:#111110;">
           <img src="images/for-sale/black-ash.jpeg" alt="Black Ash Fuzz" style="width:100%; height:100%; object-fit:cover; display:block;">
@@ -664,7 +597,6 @@
     </div>
   </div>
 </section>
-<!-- CHECKOUT MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
   <div class="modal">
     <div class="modal-header">
@@ -672,7 +604,7 @@
         <p class="modal-title" id="modalProductName"></p>
         <p class="modal-sub" id="modalProductPrice"></p>
       </div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()">&#x2715;</button>
     </div>
     <div id="checkout-loading" style="text-align:center; padding:2rem; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:#8a8678; letter-spacing:0.1em;">
       Loading secure checkout...
@@ -681,15 +613,14 @@
       <div id="payment-element"></div>
       <div id="payment-errors" style="font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:#e05a4a; margin-top:0.75rem; min-height:1.2em;"></div>
       <button class="btn btn-primary" id="submitBtn" onclick="handleCheckout()" style="width:100%; padding:1rem; font-size:0.8rem; margin-top:1.25rem;">
-        Complete Purchase — <span id="modalAmount"></span>
+        Complete Purchase &mdash; <span id="modalAmount"></span>
       </button>
       <p style="font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:#8a8678; text-align:center; margin-top:0.75rem;">
-        Secured by Stripe &nbsp;·&nbsp; Ships to US and Canada only
+        Secured by Stripe &nbsp;&middot;&nbsp; Ships to US and Canada only
       </p>
     </div>
   </div>
 </div>
-<!-- GALLERY -->
 <section id="gallery">
   <div class="gallery-inner">
     <p class="section-label">The Work</p>
@@ -713,7 +644,6 @@
     </div>
   </div>
 </section>
-<!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
     <div>
@@ -747,59 +677,52 @@
     </div>
   </div>
 </section>
-<!-- FOOTER -->
 <footer>
   <p class="footer-logo">Backlit Electric</p>
-  <p class="footer-text">Austin, Texas &nbsp;·&nbsp; Hand-wired pedals</p>
+  <p class="footer-text">Austin, Texas &nbsp;&middot;&nbsp; Hand-wired pedals</p>
   <div style="display:flex; justify-content:center; gap:2rem; margin:1rem 0;">
     <a href="https://www.instagram.com/backlitelectric/" target="_blank" style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:#c8882a; text-decoration:none;">Instagram</a>
     <a href="mailto:jeff@backlitelectric.com" style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:#c8882a; text-decoration:none;">jeff@backlitelectric.com</a>
   </div>
   <p style="font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:#8a8678; max-width:600px; margin:0.75rem auto 0; line-height:1.6; text-align:center;">Ships within 3 business days from Austin, TX. $15 flat rate shipping to US and Canada — we do not ship outside of these regions. All sales are final — but every pedal is covered by a lifetime warranty against defects and workmanship. If something arrives broken or stops working due to a build issue, we make it right.</p>
 </footer>
-<!-- STRIPE JS -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  // ── Nav toggle
   function toggleNav() {
     document.getElementById('navLinks').classList.toggle('open');
   }
   function closeNav() {
     document.getElementById('navLinks').classList.remove('open');
   }
-  // ── Gallery tabs
   function switchTab(name) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + name).classList.add('active');
     event.target.classList.add('active');
   }
-  // Dynamic gallery loader — calls Netlify function to auto-read folder contents
-  // No list.json needed — just upload images to the folder and they appear automatically
   async function buildGallery(containerId, folder) {
     const el = document.getElementById(containerId);
     try {
-      const res = await fetch(`/.netlify/functions/list-images?category=${folder}`);
+      const res = await fetch('images/' + folder + '/list.json');
       const images = await res.json();
-      if (!Array.isArray(images) || images.length === 0) {
-        el.innerHTML = `<div class="gallery-placeholder" style="grid-column:1/-1; padding:3rem; opacity:0.4;">Photos coming soon</div>`;
+      if (images.length === 0) {
+        el.innerHTML = '<div class="gallery-placeholder" style="grid-column:1/-1; padding:3rem; opacity:0.4;">No images yet</div>';
         return;
       }
-      images.forEach(img => {
-        el.innerHTML += `<div class="gallery-item"><img src="images/${folder}/${img}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`;
+      images.forEach(function(img) {
+        el.innerHTML += '<div class="gallery-item"><img src="images/' + folder + '/' + img + '" alt="" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>';
       });
     } catch(e) {
-      el.innerHTML = `<div class="gallery-placeholder" style="grid-column:1/-1; padding:3rem; opacity:0.4;">Photos coming soon</div>`;
+      el.innerHTML = '<div class="gallery-placeholder" style="grid-column:1/-1; padding:3rem; opacity:0.4;">Photos coming soon</div>';
     }
   }
   buildGallery('pedalGallery', 'pedals');
   buildGallery('guitarGallery', 'guitars');
   buildGallery('ampGallery', 'amps');
-  // ── Stripe embedded checkout
-  const STRIPE_PK = 'pk_live_51TblhgAgiKwqGyOcjdjiLLsbQyF6RA2tgYNUYvY0CaX1eBkxGKHDmh1XZ6RHra6Yen2IRI53lbIyyTZT7gmpjj5W00Ir0VTqDt';
-  let stripe, elements, currentProduct;
+  var STRIPE_PK = 'pk_live_51TblhgAgiKwqGyOcjdjiLLsbQyF6RA2tgYNUYvY0CaX1eBkxGKHDmh1XZ6RHra6Yen2IRI53lbIyyTZT7gmpjj5W00Ir0VTqDt';
+  var stripe, elements, currentProduct;
   async function openModal(productName, price) {
-    currentProduct = { name: productName, price };
+    currentProduct = { name: productName, price: price };
     document.getElementById('modalProductName').textContent = productName;
     document.getElementById('modalProductPrice').textContent = '$125 + $15 shipping = $140 total';
     document.getElementById('modalAmount').textContent = '$140';
@@ -808,15 +731,16 @@
     document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
     try {
-      const res = await fetch('/.netlify/functions/create-payment-intent', {
+      var res = await fetch('/.netlify/functions/create-payment-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: price + 15, productName })
+        body: JSON.stringify({ amount: price + 15, productName: productName })
       });
-      const { clientSecret } = await res.json();
+      var data = await res.json();
+      var clientSecret = data.clientSecret;
       stripe = Stripe(STRIPE_PK);
       elements = stripe.elements({
-        clientSecret,
+        clientSecret: clientSecret,
         appearance: {
           theme: 'night',
           variables: {
@@ -829,7 +753,7 @@
           }
         }
       });
-      const paymentElement = elements.create('payment');
+      var paymentElement = elements.create('payment');
       paymentElement.mount('#payment-element');
       document.getElementById('checkout-loading').style.display = 'none';
       document.getElementById('payment-element-container').style.display = 'block';
@@ -845,37 +769,35 @@
     if (e.target === document.getElementById('modalOverlay')) closeModal();
   }
   async function handleCheckout() {
-    const btn = document.getElementById('submitBtn');
+    var btn = document.getElementById('submitBtn');
     btn.textContent = 'Processing...';
     btn.disabled = true;
-    const { error } = await stripe.confirmPayment({
-      elements,
+    var result = await stripe.confirmPayment({
+      elements: elements,
       confirmParams: {
         return_url: 'https://backlitelectric.com?order=success'
       }
     });
-    if (error) {
-      document.getElementById('payment-errors').textContent = error.message;
-      btn.textContent = 'Complete Purchase — $' + currentProduct.price;
+    if (result.error) {
+      document.getElementById('payment-errors').textContent = result.error.message;
+      btn.textContent = 'Complete Purchase — $140';
       btn.disabled = false;
     }
   }
-  // Show success message if returning from Stripe
   if (new URLSearchParams(window.location.search).get('order') === 'success') {
-    const banner = document.createElement('div');
+    var banner = document.createElement('div');
     banner.style.cssText = 'position:fixed;top:56px;left:0;right:0;background:#c8882a;color:#0d0d0b;text-align:center;padding:0.75rem;font-family:IBM Plex Mono,monospace;font-size:0.8rem;letter-spacing:0.1em;z-index:99;';
     banner.textContent = "Order received — thank you! We'll ship within 3 business days.";
     document.body.appendChild(banner);
-    setTimeout(() => banner.remove(), 8000);
+    setTimeout(function() { banner.remove(); }, 8000);
   }
-  // Smooth scroll offset for fixed nav
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
+      var target = document.querySelector(this.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.scrollY - 64;
-        window.scrollTo({ top, behavior: 'smooth' });
+        var top = target.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top: top, behavior: 'smooth' });
       }
     });
   });
