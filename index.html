@@ -846,7 +846,7 @@ footer {
 
       // Mount Stripe embedded checkout
       checkoutInstance = await stripe.initEmbeddedCheckout({
-        clientSecret: data.clientSecret,
+        fetchClientSecret: () => Promise.resolve(data.clientSecret),
         onComplete: function() {
           elementEl.style.display = 'none';
           successEl.style.display = 'block';
