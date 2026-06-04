@@ -1,200 +1,164 @@
 # Backlit Electric — Site Management Guide
 
-Live site: [backlitelectric.com](https://backlitelectric.com)
-Repo: [github.com/jcrews82/jcrews82.github.io](https://github.com/jcrews82/jcrews82.github.io)
-
-Hosted free on GitHub Pages. Checkout handled by Stripe Payment Links. No subscriptions. No servers. No monthly cost.
+## IMPORTANT: Never open index.html in TextEdit
+TextEdit corrupts HTML files. Always edit index.html directly in the GitHub browser editor (pencil icon).
 
 ---
 
-## Hard Rules
+## For-Sale Listings
 
-- **Never open index.html in TextEdit** — it corrupts the file. Use the GitHub browser editor (pencil icon) or VS Code only.
-- **Filenames are case sensitive** — `IMG_5901.JPG` and `img_5901.jpg` are different files.
-- **Never upload junk files** — do not upload anything named `Attachment.png`, `image-asset.jpeg`, or `Untitled*.png`.
-- **Supported image formats:** `.jpg`, `.jpeg`, `.png`, `.webp`
-- **Always compress images before adding them to the repo** — see the compression step below. Uncompressed images will make the site slow.
+### How it works
+Each pedal card is hardcoded in `index.html`. When someone clicks Buy Now, a dark overlay opens and Stripe's embedded checkout loads directly on the page — no redirect, no new tab. Payment is handled by a Cloudflare Worker (`backlit-checkout.jeff-a-crews.workers.dev`) which talks to Stripe securely using your secret key.
 
 ---
 
-## File Structure
+### To ADD a new pedal for sale
 
-```
-jcrews82.github.io/
-├── index.html              ← the entire site (HTML + CSS + JS in one file)
-├── favicon.svg
-├── hero-bg.jpg
-├── wood-desktop.jpg
-├── wood-mobile.jpg
-├── CNAME                   ← tells GitHub Pages to serve from backlitelectric.com
-└── images/
-    ├── for-sale/           ← product photos for the shop section
-    ├── pedals/
-    │   ├── list.json       ← controls which pedal photos appear in gallery
-    │   └── *.jpg / *.jpeg
-    ├── guitars/
-    │   ├── list.json
-    │   └── *.jpg / *.jpeg
-    └── amps/
-        ├── list.json
-        └── *.jpg / *.jpeg
-```
+**Step 1 — Upload photos**
+1. Open GitHub Desktop
+2. Copy the pedal's exterior and interior photos into `images/for-sale/` in your local repo
+3. Name them clearly, all lowercase, no spaces: e.g. `my-pedal.jpg` and `my-pedal-inside.jpg`
+4. Commit and push in GitHub Desktop
 
----
+**Step 2 — Create the product in Stripe**
+1. Go to [dashboard.stripe.com](https://dashboard.stripe.com) → **Product catalog** → **+ Add product**
+2. Name: the pedal name
+3. Price: one-time, whatever the amount is
+4. Click **Save product**
+5. On the product page, click the **three dots (...)** next to the price row → **Copy price ID**
+6. It will look like: `price_1Abc123...`
 
-## How the Gallery Works
+**Step 3 — Add the card to index.html**
+1. Go to your GitHub repo → click `index.html` → click the pencil icon to edit
+2. Find any existing pedal card block and copy it from `<!-- PEDAL NAME -->` comment to the closing `</div>` of that card
+3. Paste it right after the last pedal card, before the closing `</div>` of `.pedals-grid`
+4. Update these fields in your new block:
+   - `src="images/for-sale/YOUR-PHOTO.jpg"` — exterior photo filename
+   - `alt="Your Pedal Name"` — pedal name
+   - `pedal-type` — e.g. `Fuzz` or `Overdrive` or `Fuzz / Distortion`
+   - `pedal-name` — the pedal name
+   - `pedal-desc` — your description
+   - `src="images/for-sale/YOUR-PHOTO-inside.jpg"` — internals photo
+   - `$125` in the `pedal-price` span — your price
+   - The price ID in the button: `onclick="openCheckout('price_YOUR_PRICE_ID_HERE', this)"`
+5. Click **Commit changes**
 
-The gallery shows 15 random photos per tab (Pedals / Guitars / Amps). A Shuffle button lets visitors see a different 15 without reloading.
-
-Each tab reads a `list.json` file from its folder. **Only photos listed in `list.json` will appear on the site.** If a photo is in the folder but missing from `list.json`, it won't show.
-
----
-
-## Adding Gallery Photos
-
-### Step 1 — Compress first (required)
-
-Every photo must be under 200kb or the gallery loads slowly. Open Terminal, navigate to your repo folder, and run:
-
-```bash
-find images/pedals images/guitars images/amps -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) | while read f; do
-  sips -Z 800 --setProperty formatOptions 60 "$f" --out "$f"
-done
-```
-
-To get to your repo in Terminal: open Terminal, type `cd ` with a space, drag your repo folder into the Terminal window, hit Enter.
-
-Safe to run on already-compressed photos. Originals in iCloud are not affected.
-
-### Step 2 — Copy photos into the right folder
-
-- Pedal photos → `images/pedals/`
-- Guitar photos → `images/guitars/`
-- Amp photos → `images/amps/`
-
-### Step 3 — Update list.json
-
-Open the `list.json` for that folder in the GitHub browser editor and add your new filenames:
-
-```json
-[
-  "IMG_5901.jpeg",
-  "IMG_6040.JPG",
-  "IMG_7022.jpeg"
-]
-```
-
-Rules:
-- Filenames must match exactly — same capitalization, same extension
-- Each entry is in quotes, separated by commas
-- No comma after the last entry
-- Whole thing wrapped in `[ ]`
-
-### Step 4 — Commit and push
-
-In GitHub Desktop, write a summary and click Commit. Then Push Origin. Site updates within a minute or two.
-
----
-
-## Removing Gallery Photos
-
-1. Delete the image file from the folder
-2. Remove its filename from `list.json`
-3. Commit and push
-
----
-
-## Adding a New Pedal for Sale
-
-### Step 1 — Create a Stripe Payment Link
-
-1. Go to [dashboard.stripe.com](https://dashboard.stripe.com) and log in
-2. Click **Payment Links** → **+ Create payment link**
-3. Add product name and price ($125)
-4. Add shipping: $15 flat rate, US and Canada only
-5. Click **Create link** — copy the `https://buy.stripe.com/xxxxxxxxx` URL
-
-### Step 2 — Add product photos
-
-Name them clearly: `pedal-name.jpg` and `pedal-name-inside.jpg`. Compress first, then upload to `images/for-sale/` via GitHub Desktop.
-
-### Step 3 — Add the pedal card to index.html
-
-Open `index.html` in the GitHub browser editor. Find `<div class="pedals-grid">` and paste this block inside it, filling in your details:
-
+**Template block to copy:**
 ```html
-<!-- PEDAL NAME -->
+<!-- YOUR PEDAL NAME -->
 <div class="pedal-card">
   <div class="pedal-img-wrap">
-    <img src="images/for-sale/YOUR-PHOTO.jpg" alt="Pedal Name">
+    <div class="sold-badge">Sold</div>
+    <img src="images/for-sale/your-pedal.jpg" alt="Your Pedal Name">
   </div>
   <div>
     <p class="pedal-type">Fuzz</p>
-    <p class="pedal-name">Pedal Name</p>
+    <p class="pedal-name">Your Pedal Name</p>
   </div>
   <p class="pedal-desc">Your description here.</p>
-  <img class="pedal-inside" src="images/for-sale/YOUR-PHOTO-inside.jpg" alt="Pedal internals">
+  <img class="pedal-inside" src="images/for-sale/your-pedal-inside.jpg" alt="Your Pedal Name internals">
   <div class="pedal-footer">
     <span class="pedal-price">$125</span>
-    <a href="https://buy.stripe.com/YOUR_LINK" target="_blank" class="buy-btn">Buy Now</a>
+    <button class="buy-btn" onclick="openCheckout('price_XXXXXXXXXXXXXXXXXXXX', this)">Buy Now</button>
   </div>
 </div>
 ```
 
-Commit and push.
+---
+
+### To mark a pedal as SOLD
+
+Two changes to the pedal's card in `index.html`:
+
+**1. Add `is-sold` to the card div:**
+```html
+<!-- Before -->
+<div class="pedal-card">
+
+<!-- After -->
+<div class="pedal-card is-sold">
+```
+
+**2. Replace the Buy Now button with a Sold label:**
+```html
+<!-- Before -->
+<button class="buy-btn" onclick="openCheckout('price_...', this)">Buy Now</button>
+
+<!-- After -->
+<span class="sold-btn">Sold</span>
+```
+
+This will grey out the card, show a "Sold" badge over the photo, and remove the checkout button.
 
 ---
 
-## Removing a Sold Pedal
+### To mark a sold pedal as AVAILABLE again
 
-1. Open `index.html` in GitHub browser editor
-2. Delete the entire `<div class="pedal-card">` block for that pedal
-3. Commit and push
-4. Archive the Stripe Payment Link in your Stripe dashboard
+Reverse the two changes above:
 
----
+**1. Remove `is-sold` from the card div:**
+```html
+<div class="pedal-card">
+```
 
-## Current Pedals for Sale
-
-| Pedal | Stripe Link |
-|-------|-------------|
-| Karma Sutra | https://buy.stripe.com/dRmdR84KEdBM0J49mb8ww03 |
-| Scarab Deluxe | https://buy.stripe.com/bJe7sKb92gNY4Zk0PF8ww00 |
-| The Crayon | https://buy.stripe.com/6oU28qele2X82Rc41R8ww01 |
-| Black Ash | https://buy.stripe.com/00w4gydhafJU8bw9mb8ww02 |
+**2. Replace the Sold label with the Buy Now button** (you'll need the price ID — check Stripe dashboard):
+```html
+<button class="buy-btn" onclick="openCheckout('price_XXXXXXXXXXXXXXXXXXXX', this)">Buy Now</button>
+```
 
 ---
 
-## Backing Out of Netlify
-
-You are no longer using Netlify. The site runs entirely on GitHub Pages. To fully close out Netlify:
-
-1. Log into [app.netlify.com](https://app.netlify.com)
-2. Go to your site → **Site settings** → scroll to bottom → **Delete this site**
-3. After deleting the site, go to your **Team settings** → **Billing** → downgrade or cancel your plan
-4. Confirm your DNS in GoDaddy no longer points to any Netlify addresses (it shouldn't — you already fixed this)
-
-Your repo still has `netlify.toml` and `package.json` — if you haven't deleted those yet, do it now. They're dead weight.
+### To REMOVE a pedal entirely
+1. Go to `index.html` in GitHub → pencil icon to edit
+2. Find the pedal's card block (look for the `<!-- PEDAL NAME -->` comment)
+3. Delete everything from `<!-- PEDAL NAME -->` to the closing `</div>` of that card
+4. Commit changes
+5. Optionally archive the product in Stripe (dashboard → product → Archive)
 
 ---
 
-## DNS Settings (GoDaddy) — Do Not Touch
+## Cloudflare Worker
 
-| Type | Name | Value |
-|------|------|-------|
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| CNAME | www | jcrews82.github.io. |
+The checkout is powered by a Cloudflare Worker at:
+`https://backlit-checkout.jeff-a-crews.workers.dev`
 
-MX/email records are separate — do not touch those.
+You should never need to touch this. But if checkout breaks:
+
+1. Go to [dash.cloudflare.com](https://dash.cloudflare.com) → **Workers & Pages** → **backlit-checkout**
+2. Check **Settings → Variables and Secrets** — confirm `STRIPE_SECRET_KEY` is present
+3. If the key is missing or expired, create a new secret key in Stripe dashboard → Developers → API keys → + Create secret key, then update it here
+4. The worker URL is referenced in `index.html` as `WORKER_URL` near the top of the `<script>` block — confirm it matches
 
 ---
 
-## If the Site Goes Down
+## Gallery Photos (pedals / guitars / amps)
 
-1. Check [githubstatus.com](https://githubstatus.com)
-2. Confirm DNS records in GoDaddy match the table above
-3. Confirm the `CNAME` file in the repo root contains exactly: `backlitelectric.com`
-4. Go to repo Settings → Pages → confirm source is `main` branch and custom domain is `backlitelectric.com`
+### How it works
+Each gallery folder has a `list.json` file that controls what photos appear. The gallery reads this file and displays photos in a random shuffled order.
+
+### To ADD gallery photos
+1. Open GitHub Desktop
+2. Copy new photos into the correct folder in your local repo:
+   - `images/pedals/` for the pedal gallery
+   - `images/guitars/` for the guitar gallery
+   - `images/amps/` for the amp gallery
+3. Commit and push in GitHub Desktop
+4. Get the updated file list from the GitHub API:
+   - `https://api.github.com/repos/jcrews82/jcrews82.github.io/contents/images/pedals`
+   - `https://api.github.com/repos/jcrews82/jcrews82.github.io/contents/images/guitars`
+   - `https://api.github.com/repos/jcrews82/jcrews82.github.io/contents/images/amps`
+5. Paste the API response to Claude and ask for a new randomized `list.json`
+6. Upload the new `list.json` to the correct folder in GitHub (replacing the old one)
+
+### To REMOVE a gallery photo
+1. Delete the photo file from the folder in GitHub
+2. Get a new `list.json` generated (steps 4–6 above)
+
+---
+
+## Rules
+- Filenames are case sensitive — `IMG_5901.JPG` is not the same as `img_5901.jpg`
+- Supported formats: `.jpg`, `.jpeg`, `.png`, `.webp`
+- Never open `index.html` in TextEdit — use GitHub browser editor only
+- Never upload files named `Attachment.png`, `image-asset.jpeg`, or `Untitled*.png` — junk files from bad exports
+- Price IDs (`price_...`) and Product IDs (`prod_...`) are different — always use the **Price ID** in the button
