@@ -316,6 +316,47 @@ h2 {
   background: var(--amber);
 }
 
+/* Sold state */
+.pedal-card.is-sold {
+  opacity: 0.6;
+}
+.pedal-card.is-sold:hover {
+  background: var(--mid-surface);
+}
+.sold-badge {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(13,13,11,0.85);
+  border: 1px solid var(--border-strong);
+  color: var(--off-white);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  padding: 0.4rem 1.2rem;
+  pointer-events: none;
+  z-index: 2;
+}
+.is-sold .sold-badge {
+  display: block;
+}
+.is-sold .pedal-img-wrap img {
+  filter: grayscale(60%);
+}
+.sold-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  color: var(--text-muted);
+  border: 0.5px solid var(--border);
+  cursor: default;
+}
+
 /* Checkout overlay */
 .checkout-overlay {
   display: none;
@@ -638,6 +679,7 @@ footer {
       <!-- KARMA SUTRA -->
       <div class="pedal-card">
         <div class="pedal-img-wrap">
+          <div class="sold-badge">Sold</div>
           <img src="images/for-sale/karma-sutra.jpg" alt="Karma Sutra Overdrive">
         </div>
         <div>
@@ -655,6 +697,7 @@ footer {
       <!-- SCARAB DELUXE -->
       <div class="pedal-card">
         <div class="pedal-img-wrap">
+          <div class="sold-badge">Sold</div>
           <img src="images/for-sale/scarab-deluxe.jpeg" alt="Scarab Deluxe Fuzz">
         </div>
         <div>
@@ -672,6 +715,7 @@ footer {
       <!-- THE CRAYON -->
       <div class="pedal-card">
         <div class="pedal-img-wrap">
+          <div class="sold-badge">Sold</div>
           <img src="images/for-sale/the-crayon.jpeg" alt="The Crayon Fuzz">
         </div>
         <div>
@@ -689,6 +733,7 @@ footer {
       <!-- BLACK ASH -->
       <div class="pedal-card">
         <div class="pedal-img-wrap">
+          <div class="sold-badge">Sold</div>
           <img src="images/for-sale/black-ash.jpeg" alt="Black Ash Fuzz">
         </div>
         <div>
