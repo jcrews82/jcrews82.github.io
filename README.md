@@ -117,6 +117,26 @@ Reverse the two changes above:
 
 ---
 
+## Reverb Sync
+
+### How it works
+`reverb_sync.py` (in the repo root, next to `index.html`) reads whatever pedals are currently listed on the site and mirrors them to Reverb — creates new listings, updates ones that changed, and ends listings for pedals pulled off the site. It prints a plan and asks before it touches anything on Reverb.
+
+### To run it
+- Open **Terminal**
+- Run:
+  ```
+  cd ~/Documents/GitHub/jcrews82.github.io
+  python3 reverb_sync.py
+  ```
+- Read the plan it prints (`CREATE` / `UPDATE` / `END`)
+- Type `y` and hit Enter to proceed, or anything else to cancel — nothing touches Reverb until you confirm
+- Log into Reverb afterward to check the shipping profile on any new draft, then publish
+
+Run this anytime after pushing a site change that adds, edits, or removes a pedal.
+
+---
+
 ## Cloudflare Worker
 
 The checkout is powered by a Cloudflare Worker at:
