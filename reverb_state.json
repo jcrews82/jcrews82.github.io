@@ -1,0 +1,102 @@
+{
+  "Germanium Fuzz Face": {
+    "reverb_id": 101838323,
+    "site_price": 150.0,
+    "reverb_price": 167.18,
+    "description": "3-knob Fuzz Face \u2014 Volume, Fuzz, and an external Bias trim for dialing in the sweet spot (the input trimmer lives inside, already set). GA4065 germanium PNP transistors, with an onboard charge pump so it runs on a normal center-negative 9V supply \u2014 no reverse-polarity power brick required. Still sounds best on a battery.",
+    "photos": [
+      "https://backlitelectric.com/images/for-sale/germanium-fuzz-face.jpg",
+      "https://backlitelectric.com/images/for-sale/germanium-fuzz-face-inside.jpg"
+    ]
+  },
+  "Silicon Fuzz Face": {
+    "reverb_id": 101838324,
+    "site_price": 150.0,
+    "reverb_price": 167.18,
+    "description": "Same 3-knob layout as the germanium version \u2014 Volume, Fuzz, external Bias \u2014 but built with NOS Texas Instruments BC108 silicon transistors for more gain and more day-to-day consistency. Standard center-negative power, though battery power is still the best-sounding option.",
+    "photos": [
+      "https://backlitelectric.com/images/for-sale/silicone-fuzz-face.jpg",
+      "https://backlitelectric.com/images/for-sale/silicone-fuzz-face-inside.jpg"
+    ]
+  },
+  "Germanium Tone Bender": {
+    "reverb_id": 101838325,
+    "site_price": 150.0,
+    "reverb_price": 167.18,
+    "description": "4-knob germanium Tone Bender MK 1.5 \u2014 the two-transistor circuit, not the more common 3-transistor MKII. Volume and Attack up front, plus external Bias and Input Trim so you can chase the exact vintage sag you're after. GA4065 PNP germanium transistors with a charge pump for standard-polarity power \u2014 but batteries bring out the best in it.",
+    "photos": [
+      "https://backlitelectric.com/images/for-sale/germanium-tone-bender.jpg",
+      "https://backlitelectric.com/images/for-sale/germanium-tone-bender-inside.jpg"
+    ]
+  },
+  "Silicon Tone Bender": {
+    "reverb_id": 101838326,
+    "site_price": 150.0,
+    "reverb_price": 167.18,
+    "description": "Same MK 1.5 two-transistor circuit and 4-knob layout \u2014 Volume, Attack, external Bias, external Input Trim \u2014 built with a NOS 2N2222 paired with a dometop Fairchild silicon transistor for a tighter, more predictable fuzz. Runs on standard power, though it still likes a battery best.",
+    "photos": [
+      "https://backlitelectric.com/images/for-sale/silicone-tone-bender.jpg",
+      "https://backlitelectric.com/images/for-sale/silicone-tone-bender-inside.jpg"
+    ]
+  },
+  "Germanium Tone Bender PTP": {
+    "reverb_id": 101838327,
+    "site_price": 225.0,
+    "reverb_price": 250.51,
+    "description": "Point-to-point wired germanium Tone Bender MK 1.5 \u2014 the two-transistor circuit, no PCB, wired with GA4065 germanium transistors. Bias is set internally (already dialed in), so it's a simple 2-knob affair up front. Battery only \u2014 there's no power jack on this one, by design.",
+    "photos": [
+      "https://backlitelectric.com/images/for-sale/germanium-tone-bender-ptp.jpg",
+      "https://backlitelectric.com/images/for-sale/germanium-tone-bender-ptp-inside.jpg"
+    ]
+  },
+  "Fuzz Face+Rangemaster": {
+    "reverb_id": 101960286,
+    "site_price": 250.0,
+    "reverb_price": 278.28,
+    "description": "Fuzz Face into a Rangemaster-style treble booster, both in one box. This one isn't a Backlit design \u2014 it's the brilliant work of the guy at Analog Noir, who hand-tunes these and hand-selects every part. What you're paying for on the build side is a genuinely high-detail wiring job, done right, no shortcuts. Level, Volume, and Fuzz up front, plus a Bias trim, and a 3-way toggle on the booster side dialing in different frequency voicings. These sound killer \u2014 vintage-correct fuzz character with a treble boost that actually earns its place instead of just adding volume. Wired point-to-point in Austin, TX by Backlit Electric, to Analog Noir's spec.",
+    "photos": [
+      "https://backlitelectric.com/images/for-sale/fuzz-face-rangemaster.jpg",
+      "https://backlitelectric.com/images/for-sale/fuzz-face-rangemaster-inside.jpg"
+    ]
+  },
+  "Tone Bender Mk1.5 and MK2": {
+    "reverb_id": 101960287,
+    "site_price": 250.0,
+    "reverb_price": 278.28,
+    "description": "A two-transistor MK 1.5 Tone Bender with the remaining guts of an MK2 wired in on a Boost switch \u2014 so you've got the classic MK 1.5 voice on tap, and a genuinely different, thicker MK2-flavored boost a stomp away. The boost side also gets its own 3-way tone cap selector, so it's not just \"louder,\" it's a different color of dirt depending on where you put that switch. Same story as the Fuzz/Rangemaster above \u2014 this is an Analog Noir design, hand-tuned and parts-selected by him, wired up here in high detail. Wired point-to-point in Austin, TX by Backlit Electric, to Analog Noir's spec.",
+    "photos": [
+      "https://backlitelectric.com/images/for-sale/tone-bender-mk15-mk2.jpg",
+      "https://backlitelectric.com/images/for-sale/tone-bender-mk15-mk2-inside.jpg"
+    ]
+  },
+  "Nobels ODR-1 / AT/Angry Charlie Dual Drive": {
+    "reverb_id": 101960648,
+    "site_price": 200.0,
+    "reverb_price": 222.73,
+    "description": "Two drives, one box. Side one is a 4-knob Nobels ODR-1-style overdrive \u2014 smooth, transparent, does the \"always-on\" job so well it's a pedalboard staple for a reason. Side two is an Angry Charlie-style high-gain drive, retuned closer to what Andy Timmons actually runs, so it's got real push instead of just fizz. Stack them or run either alone. Hand-wired in Austin, TX by Backlit Electric.",
+    "photos": [
+      "https://backlitelectric.com/images/for-sale/odr1-angry-charlie-dual-drive.jpg",
+      "https://backlitelectric.com/images/for-sale/odr1-angry-charlie-dual-drive-inside.jpg"
+    ]
+  },
+  "Hot Cake / AT/Angry Charlie Dual Drive": {
+    "reverb_id": 101960649,
+    "site_price": 200.0,
+    "reverb_price": 222.73,
+    "description": "Same dual-drive format as the ODR-1 version, swapped in for a Crowther Hot Cake-style overdrive instead \u2014 warmer, more mid-forward grind, with the low-frequency character Hot Cakes are known for. Paired with the same retuned, Andy-Timmons-leaning Angry Charlie drive on the second side. Hand-wired in Austin, TX by Backlit Electric.",
+    "photos": [
+      "https://backlitelectric.com/images/for-sale/hotcake-angry-charlie-dual-drive.jpg",
+      "https://backlitelectric.com/images/for-sale/hotcake-angry-charlie-dual-drive-inside.jpg"
+    ]
+  },
+  "Muff 2": {
+    "reverb_id": 101960650,
+    "site_price": 120.0,
+    "reverb_price": 133.85,
+    "description": "Built around Bob Myer's \"Big Muff 2\" \u2014 his own reimagining of the classic four-transistor Muff circuit, with every gain stage swapped for an op-amp instead. Three op-amp stages doing the work the original transistor cascade normally does, no transistors anywhere in the signal path. Same scooped-mids sustain and wall-of-fuzz character you know, from a cleaner, more consistent circuit. God bless Bob Myer and his garage. Hand-wired in Austin, TX by Backlit Electric.",
+    "photos": [
+      "https://backlitelectric.com/images/for-sale/muff-2.jpg",
+      "https://backlitelectric.com/images/for-sale/muff-2-inside.jpg"
+    ]
+  }
+}

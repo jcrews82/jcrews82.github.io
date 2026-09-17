@@ -69,6 +69,11 @@ CONDITION_NAME = "Brand New"
 # pedal type that doesn't match Reverb's category name 1:1.
 TYPE_TO_CATEGORY_LEAF = {
     "Fuzz": "Fuzz",
+    # Reverb's actual leaf category is "Overdrive and Boost", not "Overdrive" --
+    # confirmed by category browse URL (reverb.com/c/effects-and-pedals/overdrive-and-boost),
+    # not by a direct /categories/flat dump. If this is wrong, the script will
+    # error out cleanly again rather than silently misfiling anything.
+    "Overdrive": "Overdrive and Boost",
 }
 CATEGORY_PARENT = "Effects and Pedals"
 
@@ -405,7 +410,21 @@ def main():
         if result is None:
             print(f"  FAILED: {pedal['name']}")
             continue
-        listing_id = result.get("id")
+        # Confirmed real shape from a live create: the id is nested at
+        # result["listing"]["id"], not top-level. Top-level "id" and the
+        # self-link fallback are kept just in case Reverb ever changes this.
+        listing_id = (
+            result.get("id")
+            or (result.get("listing", {}) or {}).get("id")
+        )
+        if listing_id is None:
+            self_href = ((result.get("_links", {}) or {}).get("self", {}) or {}).get("href", "")
+            if self_href:
+                listing_id = self_href.rstrip("/").split("/")[-1]
+        if listing_id is None:
+            print(f"  WARNING: couldn't find an id anywhere in the response for {pedal['name']}.")
+            print("  Raw response:")
+            print("  " + json.dumps(result, indent=2)[:1500])
         link = (result.get("_links", {}).get("web", {}) or {}).get("href")
         print(f"  Created id={listing_id} {link or ''}")
         state[pedal["name"]] = {
